@@ -103,7 +103,7 @@
     github-slugger "^2.0.0"
     satteri "^0.10.3"
 
-"@astrojs/mdx@^8.0.0":
+"@astrojs/mdx@^8.0.0", "@astrojs/mdx@^8.0.2":
   version "8.0.2"
   resolved "https://registry.yarnpkg.com/@astrojs/mdx/-/mdx-8.0.2.tgz#95ab19e6f3d892a87a2fe81f14fd5034d50fcbd2"
   integrity sha512-WedIVP2Bu8fXSzxb3ZYZ8xDrWWjf2SRKCneh52Llhoa+O3lcpHPhoZVP3FerlivUaH/0LJz2yVaCNvMdg0u8Bw==
@@ -946,6 +946,11 @@
   resolved "https://registry.yarnpkg.com/@ungap/structured-clone/-/structured-clone-1.4.0.tgz#5e2e1374c0a30b5a42e8b083523a225c6945f88a"
   integrity sha512-1mEZtMKPM09vDmQt5y7YvmN2+DFTP7Tg0EWXdic8/C6VRnpb33e4ghisCIE3WZjsE2N8mf+QV1Zqh7ZFYLWInQ==
 
+acorn@^8.18.0:
+  version "8.18.0"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.18.0.tgz#4faf01b2d6d326bfeed97aea1f52220b5f4c1940"
+  integrity sha512-lGq+9yr1/GuAWaVYIHRjvvySG5/4VfKIvC8EWxStPdcDh/Ka7FG3twP6v4d5BkravUilhIAsG4Qj83t02LWUPQ==
+
 am-i-vibing@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/am-i-vibing/-/am-i-vibing-0.4.0.tgz#4dba7de95f9badb3e61a0f0593fac4384a4abc7e"
@@ -975,6 +980,13 @@ aria-query@^5.3.2:
   version "5.3.2"
   resolved "https://registry.yarnpkg.com/aria-query/-/aria-query-5.3.2.tgz#93f81a43480e33a338f19163a3d10a50c01dcd59"
   integrity sha512-COROpnaoap1E2F000S62r6A60uHZnmlvomhfyT2DlTcrY1OrBKn2UhH7qn5wTC9zMvD0AY7csdPSNwKP+7WiQw==
+
+astro-auto-import@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/astro-auto-import/-/astro-auto-import-0.6.0.tgz#b6d9f6ea8df8588c4aacb0903ec893a753500960"
+  integrity sha512-ru98hrmIZcLvNIcQWtGHKlYE2C+5+8dp86vGnDiGpdmqcFcG/Tn7uNVGhF1CUkvxNRtE+YZhmWTD94lnxY++rA==
+  dependencies:
+    acorn "^8.18.0"
 
 astro-expressive-code@^0.44.0:
   version "0.44.2"

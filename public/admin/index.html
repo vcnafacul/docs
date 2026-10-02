@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="robots" content="noindex" />
+		<title>Editar a documentação — Você na Facul</title>
+	</head>
+	<body>
+		<!--
+			Painel do Sveltia CMS (tickets/032, card 03). Lê ./config.yml e salva
+			direto no repositório vcnafacul/docs (commit na main → o site republica).
+			⚠️ Tem de ser HTML estático em public/: como página do Astro, o
+			servidor de desenvolvimento recarregaria o painel a cada mudança.
+		-->
+		<script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
+		<script>
+			// Bloco "Vídeo do YouTube" no editor visual: vira o componente
+			// <Video> das páginas (src/components/Video.astro). O formato tem de
+			// bater com o que o componente documenta.
+			CMS.registerEditorComponent({
+				id: 'video',
+				label: 'Vídeo do YouTube',
+				fields: [
+					{
+						name: 'id',
+						label: 'Código do vídeo',
+						hint: 'O que vem depois de "watch?v=" ou "youtu.be/" no link do YouTube.',
+						widget: 'string',
+					},
+					{ name: 'titulo', label: 'Título', widget: 'string' },
+					{
+						name: 'inicio',
+						label: 'Começar em (segundos)',
+						hint: 'Opcional. Ex.: 95 para começar em 1:35.',
+						widget: 'number',
+						value_type: 'int',
+						required: false,
+					},
+				],
+				pattern: /^<Video id="([^"]*)" titulo="([^"]*)"(?: inicio=\{(\d+)\})? \/>$/m,
+				fromBlock: (m) => ({
+					id: m[1],
+					titulo: m[2],
+					inicio: m[3] ? Number(m[3]) : undefined,
+				}),
+				toBlock: ({ id, titulo, inicio }) =>
+					`<Video id="${id ?? ''}" titulo="${(titulo ?? '').replaceAll('"', "'")}"${
+						inicio ? ` inicio={${Math.floor(inicio)}}` : ''
+					} />`,
+				toPreview: ({ id, titulo }) =>
+					`<figure><img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="" style="max-width:100%" /><figcaption>▶ ${titulo ?? ''}</figcaption></figure>`,
+			});
+		</script>
+	</body>
+</html>
