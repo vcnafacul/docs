@@ -1,0 +1,36 @@
+---
+title: Ajuda do Você na Facul
+description: Como usar a plataforma Você na Facul — para estudantes, cursinhos parceiros e a equipe do projeto.
+template: splash
+hero:
+  tagline: Passo a passo, com vídeos, de tudo o que dá para fazer na plataforma.
+  actions:
+    - text: Sou estudante
+      link: /docs/estudantes/
+      icon: right-arrow
+    - text: Sou de um cursinho
+      link: /docs/cursinhos/
+      icon: right-arrow
+      variant: minimal
+    - text: Equipe do projeto
+      link: /docs/projeto/
+      icon: right-arrow
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+<CardGrid stagger>
+	<Card title="Estudantes" icon="open-book">
+		Simulados, redações, inscrições nos cursinhos e o seu desempenho.
+	</Card>
+	<Card title="Cursinhos parceiros" icon="seti:folder">
+		Processo seletivo, turmas, frequência, provas e o suporte aos seus estudantes.
+	</Card>
+	<Card title="Equipe do projeto" icon="setting">
+		Banco de questões, diagramação dos simulados, notificações e administração.
+	</Card>
+	<Card title="Quer ajudar a escrever?" icon="pencil">
+		Toda página tem o link **Editar esta página** no rodapé.
+	</Card>
+</CardGrid>
