@@ -1,0 +1,107 @@
+---
+/**
+ * Vídeo do YouTube leve e sem rastreio antes do play (tickets/032, card 02).
+ *
+ * Mostra só a capa (uma imagem) com um botão de play. O player do YouTube —
+ * pesado e que rastreia desde o carregamento — só é criado no clique, e pelo
+ * domínio `youtube-nocookie.com` (modo de privacidade).
+ *
+ * Uso numa página .mdx:
+ *   import Video from '../../../components/Video.astro';
+ *   <Video id="dQw4w9WgXcQ" titulo="Diagramar um simulado" inicio={95} />
+ *
+ * `id`     — o código do vídeo (o que vem depois de `watch?v=` ou `youtu.be/`).
+ * `inicio` — opcional, em segundos: abre num capítulo.
+ */
+interface Props {
+	id: string;
+	titulo: string;
+	inicio?: number;
+}
+
+const { id, titulo, inicio = 0 } = Astro.props;
+const capa = `https://i.ytimg.com/vi/${encodeURIComponent(id)}/hqdefault.jpg`;
+const params = new URLSearchParams({ autoplay: '1', rel: '0' });
+if (inicio > 0) params.set('start', String(Math.floor(inicio)));
+const embed = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?${params}`;
+const noYoutube = `https://www.youtube.com/watch?v=${encodeURIComponent(id)}${
+	inicio > 0 ? `&t=${Math.floor(inicio)}s` : ''
+}`;
+---
+
+<figure class="vnf-video not-content">
+	<div class="vnf-video__quadro" data-embed={embed} data-titulo={titulo}>
+		<img src={capa} alt="" loading="lazy" decoding="async" />
+		<button type="button" class="vnf-video__play" aria-label={`Assistir: ${titulo}`}>
+			<svg viewBox="0 0 68 48" aria-hidden="true" width="68" height="48">
+				<path d="M66.5 7.7a8.6 8.6 0 0 0-6-6C55.2.3 34 .3 34 .3s-21.2 0-26.5 1.4a8.6 8.6 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.6 8.6 0 0 0 6 6C12.8 47.7 34 47.7 34 47.7s21.2 0 26.5-1.4a8.6 8.6 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3Z" fill="#f00"></path>
+				<path d="M45 24 27 14v20z" fill="#fff"></path>
+			</svg>
+		</button>
+	</div>
+	<figcaption>
+		{titulo} · <a href={noYoutube} target="_blank" rel="noopener noreferrer">abrir no YouTube</a>
+	</figcaption>
+</figure>
+
+<script>
+	// Troca a capa pelo player só no clique (o padrão "lite-youtube").
+	document.querySelectorAll<HTMLElement>('.vnf-video__quadro').forEach((quadro) => {
+		quadro.querySelector('button')?.addEventListener('click', () => {
+			const iframe = document.createElement('iframe');
+			iframe.src = quadro.dataset.embed ?? '';
+			iframe.title = quadro.dataset.titulo ?? 'Vídeo';
+			iframe.allow =
+				'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+			iframe.allowFullscreen = true;
+			iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+			quadro.replaceChildren(iframe);
+			iframe.focus();
+		});
+	});
+</script>
+
+<style>
+	.vnf-video {
+		margin-block: 1.5rem;
+	}
+	.vnf-video__quadro {
+		position: relative;
+		aspect-ratio: 16 / 9;
+		overflow: hidden;
+		border-radius: 0.5rem;
+		background: #000;
+	}
+	.vnf-video__quadro img,
+	.vnf-video__quadro :global(iframe) {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border: 0;
+	}
+	.vnf-video__play {
+		position: absolute;
+		inset: 0;
+		display: grid;
+		place-items: center;
+		width: 100%;
+		background: rgb(0 0 0 / 0.15);
+		border: 0;
+		cursor: pointer;
+	}
+	.vnf-video__play:hover,
+	.vnf-video__play:focus-visible {
+		background: rgb(0 0 0 / 0.3);
+	}
+	.vnf-video__play:focus-visible {
+		outline: 3px solid var(--sl-color-accent);
+		outline-offset: -3px;
+	}
+	.vnf-video figcaption {
+		margin-top: 0.5rem;
+		font-size: var(--sl-text-sm);
+		color: var(--sl-color-gray-3);
+	}
+</style>

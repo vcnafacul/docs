@@ -1,0 +1,16 @@
+---
+title: Exemplo de vídeo
+description: Como uma página com vídeo do YouTube fica na documentação (pode apagar quando houver páginas reais).
+sidebar:
+  order: 99
+---
+
+import Video from '../../../components/Video.astro';
+
+O vídeo só carrega quando alguém clica no play — a página continua leve e o YouTube não rastreia antes disso.
+
+<Video id="aqz-KE-bpKQ" titulo="Vídeo de exemplo" />
+
+Abrindo num trecho (aos 30 segundos):
+
+<Video id="aqz-KE-bpKQ" titulo="Vídeo de exemplo, a partir de 0:30" inicio={30} />
