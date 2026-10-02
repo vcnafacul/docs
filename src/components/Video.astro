@@ -6,9 +6,11 @@
  * pesado e que rastreia desde o carregamento — só é criado no clique, e pelo
  * domínio `youtube-nocookie.com` (modo de privacidade).
  *
- * Uso numa página .mdx:
- *   import Video from '../../../components/Video.astro';
+ * Uso numa página .mdx (sem `import`: o `astro-auto-import` já disponibiliza):
  *   <Video id="dQw4w9WgXcQ" titulo="Diagramar um simulado" inicio={95} />
+ *
+ * ⚠️ O painel (public/admin/index.html) reconhece exatamente este formato —
+ * `id`, `titulo` e o `inicio={n}` opcional, nessa ordem, numa linha só.
  *
  * `id`     — o código do vídeo (o que vem depois de `watch?v=` ou `youtu.be/`).
  * `inicio` — opcional, em segundos: abre num capítulo.

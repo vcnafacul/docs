@@ -9,7 +9,13 @@ banco, sem custo. Cada mudança na `main` republica o site sozinha (`.github/wor
 ## Como editar (sem ser dev)
 - Em qualquer página do site, clique em **Editar esta página** (rodapé): abre o arquivo no editor do GitHub.
   Edite, confira na aba **Preview** e clique em **Commit changes**. Em 1–2 minutos o site atualiza.
-- Ou use o painel visual em **/docs/admin/** (Sveltia CMS) — ver a página "Como editar a documentação".
+- Ou use o painel visual em **https://vcnafacul.github.io/docs/admin/** (Sveltia CMS): entre com
+  **"Entrar Usando Token de Acesso"** (como criar o token: `tickets/032-documentacao/04` no workspace). O painel
+  edita as seções Estudantes, Cursinhos e Equipe do projeto, envia imagens (`public/imagens`) e tem o bloco
+  **Vídeo do YouTube**. A página inicial fica de fora: editar pelo GitHub.
+
+Para pôr um vídeo em qualquer página `.mdx`: `<Video id="CODIGO" titulo="Título" inicio={95} />`
+(`inicio` em segundos, opcional; não precisa de `import`).
 
 ## Onde fica cada coisa
 | Pasta | Seção do menu |

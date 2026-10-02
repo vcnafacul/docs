@@ -1,6 +1,8 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import AutoImport from 'astro-auto-import';
+import mdx from '@astrojs/mdx';
 
 // Repositório de projeto no GitHub Pages: o site fica em /docs.
 // ⚠️ Se um dia passar a ter domínio próprio, trocar `site` e tirar o `base`.
@@ -8,6 +10,12 @@ export default defineConfig({
 	site: 'https://vcnafacul.github.io',
 	base: '/docs',
 	integrations: [
+		// `<Video>` disponível em toda página .mdx SEM linha de `import` — quem
+		// edita pelo painel (Sveltia) não precisa saber de import, e o editor
+		// visual não tem como estragar uma linha que não existe.
+		// ⚠️ Ordem importa: o AutoImport só se registra se já enxergar o MDX na
+		// lista — por isso o `mdx()` explícito no fim (o Starlight não duplica).
+		AutoImport({ imports: ['./src/components/Video.astro'] }),
 		starlight({
 			title: 'Você na Facul — Ajuda',
 			logo: { src: './src/assets/logo.svg', alt: 'Você na Facul' },
@@ -31,5 +39,6 @@ export default defineConfig({
 				{ label: 'Equipe do projeto', items: [{ autogenerate: { directory: 'projeto' } }] },
 			],
 		}),
+		mdx(),
 	],
 });

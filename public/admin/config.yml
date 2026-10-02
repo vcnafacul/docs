@@ -1,0 +1,154 @@
+# Sveltia CMS — painel de edição da documentação (tickets/032, card 03).
+# Documentação: https://sveltiacms.app/en/docs
+# Acesso (token ou login com GitHub): tickets/032-documentacao/04 no workspace.
+
+backend:
+  name: github
+  repo: vcnafacul/docs
+  branch: main
+  commit_messages:
+    create: 'docs: cria "{{slug}}" pelo painel'
+    update: 'docs: atualiza "{{slug}}" pelo painel'
+    delete: 'docs: apaga "{{slug}}" pelo painel'
+    uploadMedia: 'docs: envia imagem "{{path}}" pelo painel'
+    deleteMedia: 'docs: apaga imagem "{{path}}" pelo painel'
+
+# Imagens enviadas pelo painel: ficam em public/imagens e são servidas em
+# /docs/imagens (o site está em /docs no GitHub Pages).
+media_folder: public/imagens
+public_folder: /docs/imagens
+
+# Campos opcionais vazios saem do arquivo — senão o schema do Starlight
+# recusaria valores vazios no build.
+output:
+  omit_empty_optional_fields: true
+
+slug:
+  encoding: ascii
+  clean_accents: true
+
+# Uma coleção por seção do menu. A página inicial (index.mdx na raiz) fica de
+# fora de propósito: ela tem layout próprio — editar pelo GitHub.
+# `subfolders: false`: cada arquivo é uma página no seu caminho, como o
+# Starlight espera; dá para criar subpastas pelo painel.
+collections:
+  - name: estudantes
+    label: Estudantes
+    label_singular: Página
+    description: Páginas da seção "Estudantes" do menu.
+    folder: src/content/docs/estudantes
+    extension: mdx
+    format: frontmatter
+    create: true
+    delete: true
+    nested: { depth: 10, summary: '{{title}}', subfolders: false }
+    meta: { path: { widget: string, label: Pasta, index_file: index } }
+    sortable_fields: [title]
+    fields:
+      - { name: title, label: Título, widget: string }
+      - name: description
+        label: Descrição
+        hint: Uma frase. Aparece na busca e quando o link é compartilhado.
+        widget: text
+        required: false
+      - name: sidebar
+        label: Menu
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - name: order
+            label: Posição no menu
+            hint: Menor aparece primeiro. Em branco = ordem alfabética.
+            widget: number
+            value_type: int
+            required: false
+          - name: label
+            label: Nome no menu
+            hint: Em branco = o título.
+            widget: string
+            required: false
+      - name: body
+        label: Conteúdo
+        widget: richtext
+        modes: [rich_text, raw]
+  - name: cursinhos
+    label: Cursinhos
+    label_singular: Página
+    description: Páginas da seção "Cursinhos" do menu.
+    folder: src/content/docs/cursinhos
+    extension: mdx
+    format: frontmatter
+    create: true
+    delete: true
+    nested: { depth: 10, summary: '{{title}}', subfolders: false }
+    meta: { path: { widget: string, label: Pasta, index_file: index } }
+    sortable_fields: [title]
+    fields:
+      - { name: title, label: Título, widget: string }
+      - name: description
+        label: Descrição
+        hint: Uma frase. Aparece na busca e quando o link é compartilhado.
+        widget: text
+        required: false
+      - name: sidebar
+        label: Menu
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - name: order
+            label: Posição no menu
+            hint: Menor aparece primeiro. Em branco = ordem alfabética.
+            widget: number
+            value_type: int
+            required: false
+          - name: label
+            label: Nome no menu
+            hint: Em branco = o título.
+            widget: string
+            required: false
+      - name: body
+        label: Conteúdo
+        widget: richtext
+        modes: [rich_text, raw]
+  - name: projeto
+    label: Equipe do projeto
+    label_singular: Página
+    description: Páginas da seção "Equipe do projeto" do menu.
+    folder: src/content/docs/projeto
+    extension: mdx
+    format: frontmatter
+    create: true
+    delete: true
+    nested: { depth: 10, summary: '{{title}}', subfolders: false }
+    meta: { path: { widget: string, label: Pasta, index_file: index } }
+    sortable_fields: [title]
+    fields:
+      - { name: title, label: Título, widget: string }
+      - name: description
+        label: Descrição
+        hint: Uma frase. Aparece na busca e quando o link é compartilhado.
+        widget: text
+        required: false
+      - name: sidebar
+        label: Menu
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - name: order
+            label: Posição no menu
+            hint: Menor aparece primeiro. Em branco = ordem alfabética.
+            widget: number
+            value_type: int
+            required: false
+          - name: label
+            label: Nome no menu
+            hint: Em branco = o título.
+            widget: string
+            required: false
+      - name: body
+        label: Conteúdo
+        widget: richtext
+        modes: [rich_text, raw]
