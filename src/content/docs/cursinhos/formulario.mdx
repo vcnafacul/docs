@@ -1,0 +1,198 @@
+---
+title: Formulário
+description: Como montar o formulário de inscrição do cursinho — seções, questões, tipos de resposta e condições — e como ele entra nos processos seletivos.
+sidebar:
+  order: 5
+---
+
+O formulário é o que o estudante preenche ao se inscrever no processo seletivo do cursinho. Ele é feito de
+**seções** (por exemplo, *Informações pessoais*, *Situação socioeconômica*), e cada seção tem **questões**.
+
+**Onde fica:** no painel, card **Cursinho** → **Formulário**.
+
+:::note[Quem pode usar]
+Só quem tem a permissão **Gerenciar Formulário**. Todas as ações desta tela (criar, editar, ativar, desativar,
+reordenar, duplicar e excluir seções e questões) usam essa mesma permissão. Não há permissão separada para
+nenhuma delas.
+:::
+
+## Como o formulário funciona
+
+O formulário que o estudante vê tem duas partes, sempre nesta ordem:
+
+1. **Seções globais**, criadas pela equipe do Você na Facul e iguais para todos os cursinhos.
+2. **Seções do cursinho**, criadas por você.
+
+As seções globais aparecem na sua tela com a etiqueta **Global** e **Somente leitura**: você vê as questões, mas
+não altera. Você pode usar as questões globais como referência nas [condições](#condições) das suas questões.
+
+:::caution[O formulário é copiado quando o processo seletivo é criado]
+Ao criar um [processo seletivo](/docs/cursinhos/processo-seletivo/), a plataforma tira uma **cópia** do
+formulário naquele momento. Entram só as seções e questões **ativas** (seção sem questão fica de fora).
+
+Depois disso, **mudar o formulário não altera os processos já criados**: editar, excluir, desativar ou
+reordenar só vale para os próximos processos. Não há como atualizar o formulário de um processo que já existe.
+
+Por isso, **revise o formulário antes de criar o processo seletivo.**
+:::
+
+## A tela
+
+A tela lista as seções (as globais primeiro), com o total de questões e quantas estão ativas.
+
+| Coluna | O que mostra |
+|---|---|
+| **Seção** | O nome. Seções globais têm a etiqueta **Global**. |
+| **Total** / **Ativas** | Quantas questões a seção tem e quantas estão ativas. |
+| **Criado em** / **Atualizado em** | Datas da seção. |
+| **Ações** | Adicionar questão, ativar/desativar, editar, duplicar e excluir. |
+
+Clique na seta de uma seção para ver as questões dela. No celular, seções e questões viram cartões.
+
+## Seções
+
+### Criar ou editar uma seção
+
+1. Clique em **Nova Seção** (ou em **Editar**, na linha da seção).
+2. Preencha o **Nome da Seção** (obrigatório, ex.: *Informações Pessoais*) e, se quiser, a **Descrição** (ex.:
+   *Preencha suas informações pessoais básicas*).
+3. Salve.
+
+### Excluir uma seção
+
+O botão **Excluir** só aparece em seção **sem questões**. Exclua as questões primeiro. A exclusão pede
+confirmação.
+
+### Ativar e desativar
+
+O botão **Desativar Seção** tira a seção dos **próximos** processos seletivos, sem apagá-la.
+
+:::danger[Hoje, seção ou questão desativada some da tela]
+A tela mostra só seções e questões **ativas**. Depois de desativar e recarregar a página, a seção (ou questão)
+**não aparece mais**, e não há como reativá-la pela tela. Se precisar reativar, fale com a equipe do Você na
+Facul.
+
+Antes de desativar, tenha certeza. Se a ideia é tirar a questão de vez, prefira **excluir**.
+:::
+
+### Duplicar
+
+O botão **Duplicar Seção** pede confirmação e cria uma cópia da seção com todas as questões.
+
+:::caution[Hoje a cópia não aparece na tela]
+A cópia é criada **desativada** e, pelo motivo do alerta acima, não aparece depois que a tela recarrega. Por
+enquanto, para ter uma seção parecida, crie uma nova e cadastre as questões.
+:::
+
+## Questões
+
+### Criar uma questão
+
+1. Na linha da seção, clique em **Adicionar Questão** (ícone **+**).
+2. Preencha os campos (tabela abaixo).
+3. Se a questão só deve aparecer em certos casos, clique em **Definir Condições** (veja
+   [Condições](#condições)).
+4. Clique em **Criar Questão**.
+
+| Campo | Obrigatório | O que colocar |
+|---|---|---|
+| **Texto da Pergunta** | Sim | A pergunta, como o estudante vai ler. |
+| **Texto de Ajuda** | Não | Uma dica. Nas questões de **Texto** e **Número**, aparece dentro do campo de resposta, no lugar de "Sua resposta...". Nos outros tipos, não aparece. |
+| **Tipo de Resposta** | Sim | Veja a tabela de tipos. |
+
+A questão é sempre criada **ativa**, mesmo que você desligue a chave **Questão Ativa** na criação.
+
+:::note[Toda questão é obrigatória para o estudante]
+Não existe questão opcional: toda questão que aparece para o estudante precisa ser respondida. Para uma questão
+aparecer só em alguns casos, use [condições](#condições).
+:::
+
+### Tipos de resposta
+
+| Tipo | O estudante responde com |
+|---|---|
+| **Texto** | Texto livre, sem limite de tamanho. |
+| **Número** | Um número **inteiro, zero ou maior**. Não há como definir mínimo ou máximo. |
+| **Sim/Não** | Uma lista com Sim e Não. **Já vem marcado "Não".** |
+| **Opções (Dropdown)** | Uma das opções (**Resposta Única**) ou várias (**Múltiplas Respostas**). |
+
+Não há tipos para data, email, CPF ou texto longo.
+
+Em **Opções**, cadastre pelo menos **duas** opções com **Adicionar Opção**, sem repetir o mesmo texto. Trocar o
+tipo de resposta apaga as opções já digitadas.
+
+:::tip[Opções que excluem as outras]
+Em **Múltiplas Respostas**, uma opção que tenha **"Não possuo"** ou **"Não pertenço"** no texto funciona como
+exclusiva: se o estudante marcá-la, as outras ficam desabilitadas. Use isso em perguntas como *"Quais destes bens
+você possui?"* com a opção *"Não possuo nenhum"*.
+:::
+
+### Ver e editar uma questão
+
+Clique em **Visualizar** (ícone de olho) na linha da questão e depois em **Editar**. Dá para mudar:
+
+- o texto da pergunta e o texto de ajuda;
+- em Opções: Resposta Única ou Múltiplas Respostas, e as opções;
+- as condições.
+
+**Não dá para mudar o tipo de resposta.** Se precisar, exclua a questão e crie outra.
+
+Também não dá, hoje, para **apagar** o texto de ajuda nem para **remover todas as condições** de uma questão:
+o valor antigo continua. Nesses casos, exclua e crie a questão de novo.
+
+### Reordenar
+
+- No computador, arraste a questão pela alça **⋮⋮**.
+- No celular, use **Mover para cima** / **Mover para baixo**.
+
+A nova ordem é salva na hora. Só dá para reordenar dentro da mesma seção. Se a seção tiver alguma questão
+desativada, a reordenação falha com *"Erro ao reordenar questões"* e a ordem volta ao que era.
+
+### Excluir
+
+Clique em **Excluir** na linha da questão e confirme. Não pode ser desfeito.
+
+:::caution[Confira as condições antes de excluir ou mudar opções]
+A plataforma **não avisa** se a questão é usada em condições de outras questões. Se você excluir uma questão
+(ou renomear uma opção) que outra questão usa como condição, a condição nunca mais é atendida, e a outra questão
+pode deixar de aparecer para o estudante.
+:::
+
+## Condições
+
+Uma condição faz a questão **aparecer só quando** o estudante deu certa resposta em outra questão. Exemplo: a
+questão *"Quantas pessoas moram com você?"* só aparece se *"Você mora sozinho?"* for **Não**.
+
+Questão escondida não é exigida, e a resposta dela não é guardada.
+
+### Como definir
+
+1. Na criação ou edição da questão, clique em **Definir Condições**.
+2. Escolha o **Operador Principal**:
+   - **E (todas as condições)**: a questão aparece só se **todas** forem verdadeiras;
+   - **OU (qualquer condição)**: basta **uma**.
+3. Para cada condição, escolha a **Questão de Referência**, o **Operador** e o **Valor esperado**. Use
+   **Adicionar Condição** para incluir mais.
+4. Clique em **Salvar Condições**.
+5. **Clique em Criar Questão (ou Salvar).** As condições só são gravadas nesse momento. A mensagem "Condições
+   salvas com sucesso!" do passo 4 ainda não grava nada.
+
+### Operadores
+
+| Tipo da questão de referência | Operadores |
+|---|---|
+| **Texto** e **Opções** | Igual a, Diferente de, Contém |
+| **Número** | Igual a, Diferente de, Maior que, Maior ou igual a, Menor que, Menor ou igual a |
+| **Sim/Não** | É, Não é |
+
+Comparações de texto diferenciam maiúsculas de minúsculas: "Igual a" exige o texto exatamente igual.
+
+:::caution[Cuidados com condições]
+- **"Diferente de" e "Não é" não funcionam em questões de Número e Sim/Não:** a questão aparece sempre. Prefira
+  a forma positiva. Por exemplo, em vez de *"Não é Sim"*, use *"É Não"*.
+- Como **Sim/Não já começa marcado "Não"**, uma questão com a condição *"É Não"* aparece assim que o estudante
+  chega na seção.
+- Use como referência só questões de seções **anteriores** ou da **mesma** seção. O estudante preenche uma seção
+  de cada vez, e uma condição que aponta para uma seção posterior nunca é atendida.
+- Não dá para misturar E com OU na mesma questão.
+:::
