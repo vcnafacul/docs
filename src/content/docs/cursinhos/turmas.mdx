@@ -1,0 +1,271 @@
+---
+title: Turmas
+description: Como organizar períodos letivos e turmas, fazer a chamada, justificar faltas, gerar relatórios de frequência e acompanhar o desempenho da turma em simulados e redações.
+sidebar:
+  order: 3
+---
+
+Aqui você organiza o ano do cursinho em **períodos letivos** (por exemplo, *1º Semestre 2027*) e, dentro de
+cada período, em **turmas**. Na tela de cada turma ficam os alunos, a chamada, os relatórios de frequência e o
+desempenho da turma em simulados e redações.
+
+**Onde fica:** no painel, card **Cursinho** → **Turmas**.
+
+:::note[Quem pode usar]
+Para abrir a tela é preciso a permissão **Visualizar Turmas**. Várias ações pedem permissões a mais:
+
+| Ação | Permissão necessária |
+|---|---|
+| Ver os períodos, as turmas e a tela de cada turma | Visualizar Turmas |
+| Ver a aba **Desempenho** | Visualizar Turmas |
+| Baixar a **Lista de alunos** (PDF) e ver as matrículas canceladas | Visualizar Turmas |
+| Criar, editar e excluir períodos letivos e turmas | **Gerenciar Turmas** |
+| Fazer a chamada, editar e excluir registros de frequência | **Gerenciar Turmas** |
+| Justificar faltas (de um registro, de vários ou de um período) | **Gerenciar Turmas** |
+| Gerar os relatórios de frequência (PDF e Excel) | **Gerenciar Turmas** |
+| Usar **Atualizar agora** / **Gerar agora** na aba Desempenho | **Gerenciar Turmas** |
+| Ver o email completo dos alunos (sem ela, o email aparece mascarado) | **Gerenciar Estudantes** |
+| Ver a aba **Simulados por cartão** | **Gerenciar Estudantes** |
+| Trocar a foto do aluno na carteirinha | **Gerenciar Estudantes** |
+| Ver a foto do aluno na carteirinha | **Visualizar Estudantes** |
+
+Sem **Gerenciar Turmas**, a tela fica só para consulta: os botões de criar, editar e excluir não aparecem.
+:::
+
+## Períodos letivos
+
+A tela abre com a lista de períodos letivos do cursinho, 10 por página.
+
+| Coluna | O que mostra |
+|---|---|
+| **Período Letivo** | O nome, com a etiqueta **Ativo** (ainda não terminou) ou **Inativo** (já terminou). |
+| **Total** | Quantas turmas o período tem. |
+| **Ano** | O ano da data de início. É preenchido sozinho. |
+| **Início** / **Fim** | As datas do período. |
+| **Ações** | Adicionar turma, editar e excluir. |
+
+Clique na seta à esquerda de um período para ver as turmas dele. No celular, cada período vira um cartão.
+
+### Criar ou editar um período
+
+1. Clique em **Novo Período Letivo** (ou no ícone de editar, na linha do período).
+2. Preencha **Nome do Período** (ex.: *1º Semestre 2027*), **Data de Início** e **Data de Fim**. Os três são
+   obrigatórios, e o fim tem de ser depois do início.
+3. Clique em **Criar Período Letivo** (ou **Salvar Alterações**).
+
+O **Ano** acompanha a data de início: se você mudar o início para outro ano, o ano muda junto.
+
+### Excluir um período
+
+O botão de excluir só aparece em período **sem turmas**. Exclua as turmas primeiro. A exclusão pede
+confirmação e não pode ser desfeita.
+
+:::caution[Quando o período termina, as matrículas são encerradas]
+À **meia-noite depois da data de fim**, a plataforma encerra o período sozinha: **todos os alunos** das turmas
+dele passam para a situação **Matrícula Encerrada**.
+
+Se o curso vai durar mais do que o previsto, **edite a data de fim antes** que ela chegue.
+:::
+
+## Turmas
+
+### Criar ou editar uma turma
+
+1. Na linha do período, clique no ícone **Adicionar Turma**. Para editar, abra o período e clique no ícone de
+   editar da turma.
+2. Preencha o **Título** (obrigatório) e, se quiser, a **Descrição**.
+3. Clique em **Salvar**.
+
+Os alunos entram na turma pela **matrícula**, na tela **Estudantes**. Não há como adicionar alunos por aqui.
+
+### Lista de turmas do período
+
+| Coluna | O que mostra |
+|---|---|
+| **Nome** | O título da turma. |
+| **Descrição** | Os primeiros 100 caracteres. |
+| **Inscritos** | Quantos alunos estão matriculados. |
+| **Ações** | Ver a turma (olho), editar e excluir. |
+
+O botão de **excluir** só aparece em turma **sem alunos**. Ele pede confirmação.
+
+## A tela da turma
+
+Clique no olho de uma turma para abri-la. No topo aparecem o período, as datas de início e término, o número de
+alunos e o número de registros de frequência.
+
+A tela tem três abas: **Alunos**, **Desempenho** e **Simulados por cartão**. A última só aparece para quem tem
+Gerenciar Estudantes. A aba aberta fica no endereço da página, então dá para mandar o link já na aba certa.
+
+### Aba Alunos
+
+Mostra os alunos com matrícula ativa, em ordem alfabética:
+
+| Coluna | O que mostra |
+|---|---|
+| **Ações** | **Ver carteirinha** e **Registro de presença** do aluno. |
+| **Nº de matrícula**, **Email**, **Nome**, **Nascimento** | Dados do aluno. |
+| **% Presença** | Presenças sobre o total de chamadas em que o aluno aparece. |
+| **% Faltas** | Faltas **sem** justificativa. |
+| **% Faltas Just.** | Faltas **com** justificativa. |
+
+As três porcentagens somam 100%. Elas contam só as chamadas **dentro do período letivo**. Aluno sem nenhuma
+chamada aparece com "—".
+
+Outros botões da aba:
+
+- **Lista de alunos:** baixa um PDF com matrícula, nome e email dos alunos ativos.
+- **Matrículas canceladas:** a chave troca a lista pelos alunos que tiveram a matrícula cancelada, com a data
+  e a justificativa do cancelamento.
+- **Registros de Frequência:** abre a chamada e os relatórios (veja abaixo). Só aparece com Gerenciar Turmas.
+
+#### Carteirinha
+
+O ícone **Ver carteirinha** mostra a carteirinha do aluno: foto, nome, número de matrícula, turma e validade
+(a data de término do período letivo), com o logo do cursinho. Quem tem Gerenciar Estudantes pode trocar a foto
+pelo ícone de câmera. Por esta tela não dá para imprimir: a impressão de carteirinhas fica na tela
+**Estudantes**.
+
+## Frequência
+
+### Fazer a chamada
+
+1. Na aba **Alunos**, clique em **Registros de Frequência** e depois em **Novo Registro**.
+2. Escolha a **Data de Registro** (vem com a data de hoje) e o **Período**: **Manhã**, **Tarde** ou **Noite**.
+   O padrão é Noite.
+3. **Marque quem está presente.** Quem ficar desmarcado é registrado como **ausente**.
+4. Clique em **Confirmar**.
+
+Regras:
+
+- **Não aceita data futura.**
+- Só pode haver **uma chamada por turma, dia e período**. Dá para ter Manhã, Tarde e Noite no mesmo dia, mas
+  não duas chamadas de Noite. Se tentar, aparece *"Já existe um registro de presença para esta data e
+  período"*.
+- A lista mostra só os alunos com matrícula ativa **no momento da chamada**. Aluno que entra depois não
+  aparece nas chamadas antigas.
+- Se o aluno tiver uma justificativa de período cobrindo aquela data, a falta dele já entra justificada.
+
+:::tip
+Dá para registrar uma data anterior ao início do período letivo, mas ela **não conta** nas porcentagens da
+aba Alunos. Confira a data antes de confirmar.
+:::
+
+### Histórico de chamadas
+
+A janela **Registros de Frequência** lista todas as chamadas da turma, da mais recente para a mais antiga, com
+quem registrou, a data da aula e o período.
+
+- **Visualizar** (olho): mostra cada aluno daquela chamada como Presente ou Ausente, com a justificativa.
+- **Editar Presença** (lápis, dentro da visualização): troca o aluno entre presente e ausente. O campo
+  **Justificativa** é obrigatório.
+- **Excluir** (X): pede confirmação e apaga a chamada inteira, com as presenças e justificativas daquele dia.
+  **Não pode ser desfeito.**
+
+Não dá para mudar a data nem o período de uma chamada. Se errou, exclua e registre de novo.
+
+:::caution[Editar uma presença sempre deixa uma justificativa]
+Como a justificativa é obrigatória na edição, marcar um aluno como **Ausente** por lá gera uma falta
+**justificada**, e não uma falta comum. Use a edição para corrigir erros de chamada, sabendo que o texto fica
+registrado.
+:::
+
+### Justificar faltas
+
+Existem três jeitos. Todos pedem Gerenciar Turmas.
+
+| Jeito | Onde | Para quê |
+|---|---|---|
+| **Uma chamada** | Histórico → olho → **Editar Presença** | Corrigir um dia específico. |
+| **Várias chamadas** | Ícone **Registro de presença** do aluno → marque as chamadas → **Aplicar Justificativa** | Justificar alguns dias de uma vez. Substitui a justificativa que já existia nesses dias. |
+| **Um período** | Ícone **Registro de presença** do aluno → **Justificar Período** | Atestado ou afastamento: um intervalo de datas (de/até). |
+
+A **justificativa de período**:
+
+- precisa estar dentro do período letivo, e pode incluir datas futuras;
+- justifica as faltas já registradas no intervalo que ainda não tinham justificativa;
+- justifica também, automaticamente, as faltas das chamadas que forem feitas depois, dentro do intervalo;
+- não pode se sobrepor a outra justificativa de período do mesmo aluno;
+- tem até 255 caracteres.
+
+As justificativas de período ficam listadas na janela do aluno, com quem criou e quando.
+
+:::caution[Excluir uma justificativa de período não desfaz o efeito]
+As faltas que ela já justificou **continuam justificadas**. Ela só deixa de valer para as chamadas novas.
+:::
+
+### Relatórios de frequência
+
+Na janela **Registros de Frequência**, clique em **Relatório**, escolha o tipo e o intervalo de datas (o padrão
+são os últimos 30 dias, dentro do período letivo) e clique em **Gerar Relatório**.
+
+| Relatório | Formato | O que traz |
+|---|---|---|
+| **Relatório por Data** | PDF | Uma linha por chamada: matriculados, presentes e % de presença da turma, comparados com **todas as turmas** do cursinho. |
+| **Relatório por Estudante** | PDF | Uma linha por aluno: contatos, total de chamadas, presenças e % de presença, do maior para o menor. |
+| **Relatório Excel (Detalhado)** | Excel | Uma linha por aluno com % de presença, faltas e faltas justificadas, a coluna **Excedeu Limite** e uma coluna por aula. |
+
+No Excel você informa o **percentual máximo de faltas injustificadas** (ex.: 25%). A coluna **Excedeu Limite**
+mostra **Sim** para quem passou desse valor. Nas colunas das aulas: **P** = presente, **F** = falta, **FJ** =
+falta justificada, **-** = o aluno não estava na turma naquela chamada.
+
+## Aba Desempenho
+
+Mostra, mês a mês, como a turma está indo em **simulados** e **redações**. Escolha o mês no seletor **Mês**, ao
+lado das abas, ou clique num ponto do gráfico **Evolução por mês**.
+
+:::note[Os números não são em tempo real]
+Eles são recalculados automaticamente **toda segunda-feira às 3h** (o mês atual) e **todo dia 1º às 3h** (todos
+os meses do período). Um simulado feito hoje pode demorar alguns dias para aparecer. Quem tem Gerenciar Turmas
+pode forçar o recálculo do mês atual pelo botão **Atualizar agora**. Em turma de período já encerrado (etiqueta
+**Turma arquivada**), não há recálculo.
+:::
+
+### Simulados
+
+Entram os simulados feitos **pela plataforma** e os **por cartão-resposta**, dos alunos com matrícula ativa.
+
+| Indicador | O que é |
+|---|---|
+| **Aproveitamento geral** | Média de acertos da turma, considerando as matérias. |
+| **Engajados** | Alunos com pelo menos um simulado completo no mês, sobre o total de alunos. |
+| **Tentativas completas** | Simulados terminados no mês. |
+| **Total tentativas** | Todos os simulados começados no mês, inclusive os não terminados. |
+
+Abaixo há o gráfico de evolução e a divisão **Por matéria** ou **Por frente** (radar e tabela com o
+aproveitamento e quantos alunos fizeram). Clique numa matéria para ver as frentes dela.
+
+### Redação
+
+| Indicador | O que é |
+|---|---|
+| **Nota geral** | Média da turma (de 0 a 1000) nas redações do mês **corrigidas por pessoas**. Correções feitas só pela IA não entram. |
+| **Participantes** | Alunos que entregaram redação no mês. |
+| **Alunos engajados** | Alunos que receberam correção humana. |
+| **Redações revisadas** | Redações com correção humana, e o total entregue. |
+| **Cobertura humana** | Revisadas ÷ entregues. Abaixo de 50% aparece **Cobertura baixa**. |
+
+Há também a evolução da nota geral e das cinco competências (C1 a C5) e um radar das competências.
+
+Quando poucos alunos participaram, aparece o aviso **Amostra pequena**: os números podem não representar a turma.
+
+## Aba Simulados por cartão
+
+É o relatório dos **cartões-resposta** enviados pelos alunos desta turma, simulado por simulado. Quem fez o
+simulado pela plataforma **não aparece aqui**: para a visão geral, use a aba Desempenho. Esta aba não envia
+cartões.
+
+1. Escolha o **Simulado**. A lista abre no que recebeu cartão mais recentemente.
+2. Veja o resumo: média e distribuição de acertos, e quantos alunos entraram no cálculo.
+3. Use as subabas:
+   - **Estudantes:** a situação de cada aluno (**Lido**, **Aguardando leitura**, **Falhou**, **Não enviou**), os
+     acertos e o resultado por matéria. Clique num aluno para ver questão por questão, baixar a foto do cartão
+     ou, se a leitura falhou, reenviar. **Exportar CSV** baixa a lista do jeito que está filtrada na tela.
+   - **Questões:** o acerto da turma em cada questão, o gabarito e a distribuição das respostas.
+
+Com dois simulados ou mais, **Comparar duas aplicações** mostra a evolução de cada aluno que fez os dois.
+
+:::tip
+Se aparecer um alerta de **leitura anormal** em alguma questão, confira o gabarito impresso antes de confiar
+nos percentuais dela.
+:::
