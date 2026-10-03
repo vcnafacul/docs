@@ -1,0 +1,130 @@
+---
+title: Processo seletivo
+description: Como acompanhar e criar os processos seletivos do cursinho — a tela, os filtros, o que preencher e o que o estudante vê.
+sidebar:
+  order: 1
+---
+
+O processo seletivo é o período em que os estudantes se inscrevem no seu cursinho. É por ele que você
+divulga o link de inscrição, acompanha quantas pessoas se inscreveram e, depois, segue para a matrícula.
+
+**Onde fica:** no painel, card **Cursinho** → **Processos Seletivos**.
+
+:::note[Quem pode usar]
+Só quem tem a permissão **Gerenciar processo seletivo** no cursinho. Se o item não aparece no seu menu, peça
+para quem administra o cursinho liberar essa permissão.
+
+Todas as ações desta tela (criar, editar, prorrogar e excluir processos) usam essa mesma permissão. Não há
+permissão separada para nenhuma delas.
+:::
+
+## A tela
+
+A tela mostra todos os processos seletivos do cursinho numa tabela, **do mais recente para o mais antigo**
+(pela data de início). Clique no título de uma coluna para ordenar por ela.
+
+| Coluna | O que mostra |
+|---|---|
+| **Processo seletivo** | O título do processo. Processos de teste têm a etiqueta **Teste** ao lado. |
+| **Status** | Em que momento o processo está (veja abaixo). |
+| **Inicia** | Primeiro dia de inscrições. |
+| **Encerra** | Último dia de inscrições. |
+| **Inscritos / vagas** | Quantas pessoas se inscreveram e quantas vagas o cursinho abriu. |
+| **Criado em** | Quando o processo foi cadastrado. |
+
+Em telas menores, as colunas **Encerra** e **Criado em** ficam escondidas.
+
+Clique em uma linha para abrir os detalhes do processo. É lá que fica o **link de inscrição** para copiar e
+divulgar.
+
+### Status
+
+| Status | Significa |
+|---|---|
+| **Pendente** | O processo foi criado, mas as inscrições ainda não começaram. |
+| **Ativo** | As inscrições estão abertas. |
+| **Encerrado** | O último dia de inscrições já passou. |
+
+## Filtros
+
+No topo da tabela há quatro filtros. Eles **se somam**: usar dois ao mesmo tempo mostra só os processos que
+atendem aos dois.
+
+| Filtro | Como funciona |
+|---|---|
+| **Buscar por nome** | Procura pelo título do processo. Não precisa digitar acento: "inscricao" encontra "Inscrição". |
+| **Status** | Todos, Ativo, Encerrado ou Pendente. |
+| **Inicia em** | Mostra os processos cuja data de início está dentro do intervalo escolhido. |
+| **Criado em** | Mostra os processos cadastrados dentro do intervalo escolhido. |
+
+Nos filtros de data dá para preencher só um lado do intervalo (por exemplo, "a partir de 01/03").
+
+O botão **Limpar filtros** mostra quantos filtros estão ligados e desliga todos de uma vez.
+
+## Como criar um processo seletivo
+
+### Antes de começar
+
+O cursinho precisa ter um **formulário de inscrição ativo**. É ele que o estudante preenche ao se inscrever.
+Sem formulário, a criação não é concluída e aparece a mensagem *"Não existe um formulário ativo - Entre em
+contato com o suporte"*. Nesse caso, fale com a equipe do Você na Facul.
+
+### Passo a passo
+
+1. Clique em **Novo processo seletivo**.
+2. Preencha os campos (tabela abaixo).
+3. Clique em **Criar**.
+4. Se o processo estiver marcado como teste, confirme no aviso que aparece
+   (veja [Processo de teste](#processo-de-teste)).
+
+| Campo | Obrigatório | O que colocar |
+|---|---|---|
+| **Título** | Sim | O nome do processo. Ex.: *Processo Seletivo 2027 — 1º semestre*. |
+| **Número de Vagas** | Sim | Quantas vagas o cursinho está abrindo. Precisa ser 1 ou mais. |
+| **Descrição** | Não | Informações para o estudante sobre o processo. |
+| **Período de Inscrição** | Sim | Clique no calendário e escolha o **primeiro** e o **último** dia de inscrições. O último dia não pode ser uma data que já passou. |
+| **Exigirá envio de documentos** | Não | Marque se os candidatos precisam enviar documentos. |
+| **Processo seletivo de teste** | — | Vem **marcado**. Desmarque para criar um processo de verdade. |
+
+## O que o estudante vê
+
+### O período de inscrição
+
+O período vale por **dias inteiros**:
+
+- **À meia-noite do primeiro dia**, o estudante passa a ver a tela de inscrição e pode se inscrever.
+- **À meia-noite depois do último dia**, ou seja, quando o último dia termina, a tela passa a mostrar o
+  processo como **encerrado**.
+
+Antes de começar, quem abre o link vê um aviso de que o processo ainda não começou e a data de início.
+
+:::tip
+Se escolher hoje como primeiro dia, as inscrições já ficam abertas assim que o processo for criado.
+:::
+
+### A confirmação da inscrição
+
+Quando termina a inscrição, o estudante vê a mensagem **Inscrição confirmada!** na tela e recebe um **email**
+confirmando que a inscrição foi feita com sucesso.
+
+:::note[Em breve: aviso no aplicativo]
+Estudantes que baixaram o aplicativo do Você na Facul e autorizaram as notificações também vão receber um
+**aviso no celular** confirmando a inscrição. É uma mensagem curta, que avisa que a cópia do formulário
+preenchido foi enviada por email.
+:::
+
+## Processo de teste
+
+Ao criar um processo, a opção **"Este é um processo seletivo de teste e não deve ser considerado válido"** já
+vem **marcada**. Isso é de propósito: evita que um processo de verdade seja aberto sem querer.
+
+Se você mantiver a opção marcada, aparece um aviso de confirmação antes de criar. Para seguir, marque
+**Entendi e quero continuar** e clique em **Salvar**.
+
+:::danger[Processo de teste não matricula ninguém]
+- **Nenhum estudante** inscrito num processo de teste pode ser **matriculado**.
+- Depois de criado, um processo de teste **não pode virar um processo normal**.
+
+Use processo de teste **só para testar**: conhecer a tela, ver como o formulário aparece para o estudante,
+treinar a equipe. Para receber inscrições de verdade, **desmarque** a opção antes de clicar em **Criar**.
+:::
