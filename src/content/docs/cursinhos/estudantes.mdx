@@ -1,0 +1,159 @@
+---
+title: Estudantes
+description: Como consultar os estudantes matriculados do cursinho, filtrar, baixar a lista, emitir carteirinhas e declarações, trocar a turma e cancelar ou reativar matrículas.
+sidebar:
+  order: 4
+---
+
+Aqui ficam todos os estudantes que já foram **matriculados** no cursinho, de todos os processos seletivos e
+períodos letivos. É a tela para consultar a turma de cada um, baixar listas, emitir carteirinhas e declarações
+e cuidar das matrículas.
+
+**Onde fica:** no painel, card **Cursinho** → **Estudantes**.
+
+:::note[Quem pode usar]
+Para abrir a tela é preciso a permissão **Visualizar Estudantes**. Várias ações pedem permissões a mais:
+
+| Ação | Permissão necessária |
+|---|---|
+| Ver a lista, buscar, filtrar e ver a carteirinha | Visualizar Estudantes |
+| Ver **email e telefone** completos (sem ela, aparecem mascarados) | **Gerenciar Estudantes** |
+| Ver o **CPF** completo (sem ela, aparece mascarado) | **Gerenciar Processos Seletivos** |
+| **Baixar lista** (planilha) | **Gerenciar Estudantes** |
+| Gerar **carteirinhas** em PDF | **Gerenciar Estudantes** |
+| Baixar a **declaração de matrícula** | **Gerenciar Estudantes** |
+| **Cancelar** e **reativar** matrículas | **Gerenciar Estudantes** |
+| Trocar a foto do estudante na carteirinha | **Gerenciar Estudantes** |
+| **Alterar Turma** de um estudante | **Gerenciar Turmas** |
+:::
+
+## Como o estudante chega aqui
+
+O estudante aparece nesta tela depois de ser **matriculado**. A matrícula acontece no fim do processo seletivo:
+o cursinho convoca o inscrito, ele declara interesse e o cursinho confirma a matrícula, já escolhendo a turma.
+Nesse momento ele recebe o **número de matrícula**.
+
+A partir daí, a turma e a situação da matrícula são cuidadas por aqui.
+
+## A tela
+
+No topo aparece o nome do cursinho. A lista é paginada (15 por página, dá para mudar).
+
+| Coluna | O que mostra |
+|---|---|
+| **Ações** | Os botões de cada estudante (veja [Ações](#ações-de-cada-estudante)). |
+| **Nº de matrícula** | Gerado na matrícula: ano + sequência (ex.: *20270001*). |
+| **Turma** | A turma atual, ou **Sem Turma**. |
+| **Ano Letivo** | O ano do período letivo da turma. |
+| **Processo Seletivo** | Por qual processo o estudante entrou. |
+| **Email**, **Telefone**, **CPF** | Contato e documento. Podem aparecer mascarados, conforme a permissão. |
+| **Nome**, **Nascimento**, **Idade** | Dados do estudante. |
+| **Status** | **Matriculado**, **Matrícula Cancelada** ou **Matrícula Encerrada**. |
+
+### Status da matrícula
+
+| Status | Significa |
+|---|---|
+| **Matriculado** | Estudante ativo. Aparece na turma e nas chamadas. |
+| **Matrícula Cancelada** | O cursinho cancelou a matrícula. Pode ser reativada. |
+| **Matrícula Encerrada** | O período letivo da turma terminou. Acontece sozinho, à meia-noite depois da data de fim do período (veja [Turmas](/docs/cursinhos/turmas/#períodos-letivos)). |
+
+No celular, a tabela vira uma lista de cartões, com as mesmas ações.
+
+## Buscar e filtrar
+
+| Filtro | Como funciona |
+|---|---|
+| **Buscar** | Por nome, número de matrícula ou email. |
+| **Período Letivo** | O ano letivo. |
+| **Processo Seletivo** | Um processo específico (aparece com as datas de início e fim). |
+| **Status de Matrícula** | Matriculado, Matrícula Cancelada ou Matrícula Encerrada. |
+
+Os filtros se somam. No computador, dá também para filtrar e ordenar pelo cabeçalho de algumas colunas:
+
+- **Nº de matrícula**, **Email**, **Telefone** e **CPF**: filtro "contém";
+- **Nascimento**: "é", "depois de" ou "antes de".
+
+**Nome** e **Idade** não têm filtro nem ordenação pelo cabeçalho. Para achar alguém pelo nome, use a **Buscar**.
+
+## Baixar lista
+
+O botão **Baixar lista** gera uma planilha com os estudantes **do jeito que estão filtrados na tela** (todas as
+páginas, não só a que está aberta).
+
+Antes de baixar, você escolhe as colunas. Há três atalhos:
+
+| Atalho | Traz |
+|---|---|
+| **Padrão** | Uma seleção básica. |
+| **Contato** | Identificação e contato. |
+| **Tudo o que posso ver** | Todas as colunas que a sua permissão libera. |
+
+Ou marque coluna por coluna, separadas em grupos: **Identificação**, **Contato**, **Documentos**, **Endereço**,
+**Matrícula**, **Progresso** e **Responsável**. A escolha fica salva no seu navegador para a próxima vez.
+
+Na planilha, **CPF** e **RG** saem mascarados para quem não tem a permissão Gerenciar Processos Seletivos. O ícone
+ao lado da coluna avisa quando isso vai acontecer.
+
+:::caution[A planilha tem dados pessoais]
+Contato, documentos e endereço de estudantes ficam fora da plataforma depois de baixados. Guarde o arquivo com
+cuidado e não compartilhe em grupos.
+:::
+
+## Carteirinhas
+
+1. Marque os estudantes na caixa de seleção da lista. **Máximo de 20** por vez.
+2. Clique em **Carteirinhas**.
+3. Na janela, clique em **Baixar PDF**.
+
+Só dá para marcar estudantes **matriculados e com turma**. Cada carteirinha tem foto, nome, número de matrícula,
+turma, validade (a data de término do período letivo) e o logo do cursinho.
+
+## Ações de cada estudante
+
+Passe o mouse sobre cada ícone da coluna **Ações** para ver o nome dele.
+
+| Botão | O que faz | Aparece quando |
+|---|---|---|
+| **Visualizar** | Abre a carteirinha do estudante. Quem tem Gerenciar Estudantes troca a foto pelo ícone de câmera. | Sempre. |
+| **Declaração de matrícula** | Baixa o PDF da declaração. | Estudante **Matriculado** e com turma. |
+| **Cancelar matrícula** | Veja abaixo. | Estudante **Matriculado**. |
+| **Reativar matrícula** | Veja abaixo. | Estudante **não** matriculado. |
+| **Alterar Turma** | Veja abaixo. | Sempre (com Gerenciar Turmas). |
+
+### Cancelar uma matrícula
+
+Escolha o motivo e confirme. Nenhum vem marcado, para não cancelar com o motivo errado por descuido.
+
+| Motivo | O que se enquadra |
+|---|---|
+| **Rotina** | Conflitos de horários, sobrecarga, trabalho e responsabilidades domésticas. |
+| **Transporte** | Dificuldades de locomoção. |
+| **Motivos pessoais** | Questões de saúde, financeiras, familiares ou particulares. |
+| **Desistência inicial** | Não comparecimento desde o início das aulas. |
+| **Abandono** | Interrupção definitiva da frequência após período de participação. |
+| **Não informou o motivo** | — |
+| **Outros (especifique)** | Abre um campo para descrever o motivo. |
+
+Depois de cancelada, a matrícula sai da lista de alunos da turma e das chamadas novas. Na tela da turma, ela
+aparece na chave **Matrículas canceladas**, com a data e o motivo.
+
+### Reativar uma matrícula
+
+Clique no ícone de reativar e confirme. O estudante volta a **Matriculado**, na mesma turma.
+
+:::caution[Só matrícula cancelada pode ser reativada]
+O botão de reativar também aparece para quem está com **Matrícula Encerrada**, mas nesse caso a plataforma
+recusa. Matrícula encerrada é a de um período letivo que já terminou.
+:::
+
+### Alterar a turma
+
+1. Clique no ícone **Alterar Turma**.
+2. Escolha a nova turma. As turmas aparecem agrupadas por período letivo, com o número de alunos, e a turma atual
+   vem marcada como **ATUAL**. Dá para buscar por turma, período ou ano.
+3. Confirme.
+
+Não é possível mover o estudante para uma turma de um período letivo **que já terminou**.
+
+O histórico do estudante registra cada troca de turma, cada cancelamento e cada reativação.
