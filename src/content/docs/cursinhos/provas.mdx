@@ -1,0 +1,278 @@
+---
+title: Provas
+description: Como criar as provas do cursinho, acompanhar o cadastro das questões, baixar caderno e cartão-resposta, enviar os cartões preenchidos e organizar eventos de simulado presencial.
+sidebar:
+  order: 6
+---
+
+Aqui o cursinho cria as **próprias provas** e cuida de tudo o que vem depois: acompanhar o cadastro das
+questões, baixar o caderno e o cartão-resposta para imprimir, enviar os cartões preenchidos pelos alunos e
+organizar **eventos de simulado** presencial.
+
+**Onde fica:** no painel, card **Cursinho** → **Provas**.
+
+:::note[Quem pode usar]
+Para abrir a tela é preciso a permissão **Visualizar provas (cursinho)**. Várias ações pedem permissões a mais:
+
+| Ação | Permissão necessária |
+|---|---|
+| Ver as provas, filtrar e abrir os detalhes | Visualizar provas (cursinho) |
+| Ver os eventos de simulado e o painel de cada um | Visualizar provas (cursinho) |
+| **Nova Prova** e **Duplicar prova** | **Cadastrar provas (cursinho)** |
+| Criar, editar e excluir **eventos de simulado** | **Cadastrar provas (cursinho)** |
+| **Gerenciar Categorias** | **Gerenciar categorias (cursinho)** |
+| **Enviar cartão** | **Visualizar Estudantes** |
+| Abrir o **relatório** do simulado, baixar a foto do cartão e reenviar | **Gerenciar Estudantes** |
+| Montar as questões e aplicar novas versões | **Editar questões e montar as provas do cursinho** |
+| Baixar o **caderno de questões** e o **cartão-resposta** | **Visualizar provas** (da plataforma) |
+| **Editar arquivos** da prova e a **janela de disponibilidade** do simulado | **Cadastrar provas** (da plataforma) |
+
+As duas últimas linhas são permissões **da plataforma**. Uma função do cursinho só tem essas permissões se elas
+vierem do **perfil base** escolhido ao criar a função (veja [Colaboradores](/docs/cursinhos/colaboradores/#criar-uma-função)).
+Sem elas, o botão aparece, mas a ação é recusada.
+
+Quando falta permissão para um botão do topo da tela, ele fica desabilitado e, ao passar o mouse, diz qual
+permissão falta.
+:::
+
+## Prova, simulado e categoria
+
+| Termo | O que é |
+|---|---|
+| **Categoria** | O "formato" da prova: exame, duração e quantas questões ela deve ter (ou "livre", sem número fixo). |
+| **Prova** | O conjunto de questões numeradas, com nome, ano, edição, categoria e, se quiser, o PDF e o gabarito. |
+| **Simulado** | A versão da prova aplicada aos alunos. É dele que saem o caderno, o cartão-resposta e o relatório. Cada prova do cursinho tem **um** simulado, criado junto com ela e com o mesmo nome. |
+
+### Do zero até aplicar
+
+1. **Crie uma categoria** em **Gerenciar Categorias**, se ainda não houver. Sem categoria não dá para criar prova.
+2. **Crie a prova** em **Nova Prova**. Ela nasce sem questões.
+3. **Monte as questões** no **Banco de Questões** (outra tela do painel): cadastre questões novas já ligadas à
+   prova ou adicione questões que já existem, informando o número de cada uma.
+4. **As questões precisam ser aprovadas.** A prova vai de **Em cadastro** para **Em validação** e então
+   **Completa**.
+5. Quando todas as questões estão **cadastradas, aprovadas e numeradas**, o simulado é liberado: dá para baixar o
+   **caderno** e o **cartão-resposta** e imprimir.
+6. Depois da aplicação, **envie os cartões** preenchidos e acompanhe o resultado no **relatório**.
+
+## A tela
+
+A tabela mostra as provas do cursinho, das mais recentes (por ano) para as mais antigas.
+
+| Coluna | O que mostra |
+|---|---|
+| **Prova**, **Categoria**, **Ano**, **Edição** | Os dados da prova. |
+| **Progresso** | Barra com questões **validadas** (verde), **cadastradas** ainda sem validação (laranja) e **faltando** (cinza), mais "validadas/total". Passe o mouse para ver os números. |
+| **Gabarito** | ✓ se a prova tem gabarito em PDF. |
+| **Versões** | 🔄 *Recebe novas versões* ou 🔒 *Versões fixas* (veja [Novas versões](#novas-versões-das-questões)). |
+| **Cadastrado em** | Data de criação. |
+| **Status** | Veja abaixo. |
+
+| Status | Significa |
+|---|---|
+| **Em cadastro** | Ainda faltam questões. |
+| **Em validação** | Todas as questões foram cadastradas, mas nem todas foram aprovadas. |
+| **Completa** | Todas as questões estão aprovadas. |
+| **Sem questões** | A prova não tem um número de questões definido. |
+
+:::caution[Provas de categoria "livre"]
+Uma prova de categoria **sem número fixo de questões** aparece sempre como **Sem questões**, e o Progresso fica
+"—", mesmo que já tenha questões aprovadas. Nos detalhes, as porcentagens podem aparecer como "NaN%". Para
+acompanhar o cadastro pela tela, prefira categorias com quantidade de questões definida.
+:::
+
+### Filtros
+
+**Buscar por nome**, **Edição**, **Aplicação**, **Ano** e **Só com gabarito**. Os filtros se somam, e **Limpar
+filtros** desliga todos.
+
+## Categorias
+
+Em **Gerenciar Categorias** você vê as categorias do cursinho, com exame, quantidade de questões, duração e em
+quantas provas e simulados cada uma está em uso.
+
+**Criar:** clique em **+ Nova Categoria** e preencha **Exame**, **Duração (min)**, **Qtd de questões** (ou marque
+*sem alvo / livre*) e **Nome**. O nome não pode repetir o de outra categoria do cursinho.
+
+**Excluir:** só categorias **que não estão em uso** por nenhuma prova ou simulado. Não há como editar uma
+categoria: se precisar mudar, crie outra.
+
+:::caution[Alguns nomes não podem ser excluídos]
+Categorias com nomes iguais aos das categorias padrão da plataforma (como *Enem Dia 1* ou *Matemática*) aparecem
+com 🔒 **Categoria seedada** e não podem ser excluídas, mesmo sendo do cursinho. Evite esses nomes.
+:::
+
+## Criar uma prova
+
+1. Clique em **Nova Prova**.
+2. Preencha:
+
+| Campo | O que colocar |
+|---|---|
+| **Categoria** | Uma categoria do cursinho. Define quantas questões a prova deve ter. |
+| **Nome da prova** | Obrigatório. Não pode repetir o nome de outra prova do cursinho. |
+| **Edição** | Regular, Digital, Reaplicação/PPL, 2ª Aplicação ou 3ª Aplicação. As duas últimas definem a **aplicação** da prova. |
+| **Ano de Realização** | O ano da prova. Confira: o campo já vem preenchido com um valor fixo. |
+| **Aplicar novas versões das questões automaticamente** | Deixe desmarcado (recomendado). Veja [Novas versões](#novas-versões-das-questões). |
+| **Prova (PDF)** e **Gabarito (PDF)** | Opcionais. |
+
+3. Clique em **Criar Prova**.
+
+Depois de criada, **não dá para mudar** nome, ano, edição nem categoria, e **não há como excluir** a prova pela
+tela. Confira os dados antes de criar.
+
+## Detalhes da prova
+
+Clique numa prova para abrir os detalhes:
+
+- **Informações Gerais:** edição, ano, aplicação e categoria. Se a prova for cópia de outra, aparece "Duplicada de…".
+- **Progresso das Questões:** questões esperadas, cadastradas e aprovadas. A porcentagem de aprovadas é calculada
+  sobre as **cadastradas**, não sobre o total.
+- **Download da Prova** e **Download do Gabarito** (este só se houver gabarito). Se a prova foi criada sem PDF, o
+  download da prova falha.
+- **Editar arquivos** (lápis): substitui o PDF da prova ou adiciona/substitui o gabarito.
+- **Duplicar prova** e **Ver simulados**.
+
+### Novas versões das questões
+
+Questões do banco podem ganhar **versões novas** (uma correção maior, por exemplo).
+
+- **Desmarcado (🔒 Versões fixas, recomendado):** a prova fica exatamente como você montou. Use **Buscar
+  atualizações** para ver o que mudou, comparar lado a lado e escolher o que aplicar em **Aplicar selecionadas**.
+- **Marcado (🔄 Recebe novas versões):** toda versão nova passa a valer na prova automaticamente. As que já existem
+  não são aplicadas na hora.
+
+Quem já fez a prova continua vendo a versão que respondeu. Correções pequenas, que não criam versão, valem para
+todas as provas.
+
+### Duplicar uma prova
+
+Cria uma prova nova com **as mesmas questões, na mesma numeração**. Você dá o nome (vem sugerido "… (cópia)").
+
+- As questões são as **mesmas**, e não cópias: corrigir uma questão vale para as duas provas.
+- A numeração é de cada prova: trocar o número numa não muda a outra.
+- **O PDF e o gabarito não são copiados.** Envie de novo pela opção **Editar arquivos** da nova prova.
+
+## Simulados: caderno, cartão e relatório
+
+Nos detalhes da prova, clique em **Ver simulados**. Cada simulado mostra um ícone de situação:
+
+| Ícone | Situação |
+|---|---|
+| Cadeado | **Aprovação pendente:** ainda falta cadastrar, aprovar ou numerar alguma questão. |
+| Relógio | Tem janela de disponibilidade e ainda não abriu. |
+| Expirado | A janela de disponibilidade já passou. |
+| Check | **Disponível.** |
+
+E as ações:
+
+| Ação | O que faz |
+|---|---|
+| **Baixar cartão de resposta** | Baixa o PDF do cartão para imprimir. Só com o simulado liberado. |
+| **Baixar caderno de questões** | Baixa um pacote **.zip para abrir no Overleaf**, onde o caderno é montado e exportado em PDF. Se aparecer "Caderno gerado com observações", confira as questões marcadas. |
+| **Editar janela de disponibilidade** | Define de quando até quando o simulado fica disponível. O início tem de ser antes do fim. |
+| **Ver relatório do cartão-resposta** | Abre o relatório dos cartões enviados (o mesmo da aba [Simulados por cartão](/docs/cursinhos/turmas/#aba-simulados-por-cartão) da turma, mas com todas as turmas). Só aparece depois que algum cartão for enviado. |
+
+:::caution[Cada download do cartão gera um número novo]
+Cada vez que você baixa o cartão, ele sai com um **número próprio** (#001, #002…) no QR Code. A plataforma recusa
+o mesmo número enviado duas vezes **para o mesmo aluno**. Imprimir várias cópias de um mesmo download funciona
+normalmente para alunos diferentes.
+:::
+
+## Enviar cartão
+
+Depois da prova, a coordenação envia a foto de cada cartão preenchido. **O aluno não envia o próprio cartão.**
+
+1. Clique em **Enviar cartão**.
+2. Busque o aluno por **matrícula, nome ou sobrenome** (pelo menos 3 letras). Aparecem só alunos **matriculados**
+   no cursinho.
+3. Clique no aluno (use **Trocar** se escolheu errado).
+4. Escolha a **foto** do cartão. Só imagem: **PDF não é aceito**. É **um cartão por vez**.
+5. Clique em **Enviar cartão** e **confirme**.
+
+A plataforma lê o QR Code para saber de qual simulado é o cartão, e a **leitura das respostas** é feita depois, em
+fila. Acompanhe o resultado no **relatório do simulado**: o envio não mostra o resultado, mesmo que a mensagem diga
+"O resultado aparece aqui".
+
+:::danger[Confira o aluno antes de confirmar]
+O cartão fica registrado para o aluno escolhido **e não há como desfazer**. A matrícula escrita no cartão **não é
+conferida**: vale o aluno escolhido na tela.
+:::
+
+**Dicas para a foto:** cartão inteiro, reto, bem iluminado, sem reflexo e com o QR Code nítido. Foto torta ou
+desfocada costuma dar *"QR do cartão ilegível"*.
+
+| Mensagem | O que fazer |
+|---|---|
+| *QR do cartão ilegível* | Tire outra foto, mais nítida. |
+| *Este cartão já foi enviado para este estudante.* | O cartão já está registrado. Veja o resultado no relatório. |
+| *…a leitura falhou. Use "Reenviar" no relatório do simulado.* | Abra o relatório e use **Reenviar foto** no aluno. |
+| *Serviço de leitura (OMR) indisponível* | O cartão **já foi registrado**. Quando o serviço voltar, use **Reenviar** no relatório, sem enviar de novo por aqui. |
+
+:::note[A leitura leva tempo]
+Os cartões são lidos **um de cada vez**. Com muitos cartões, os últimos podem levar dezenas de minutos. Se a
+leitura de um cartão não terminar em 60 minutos, ele aparece como **Falhou** no relatório, e dá para reenviar.
+:::
+
+## Eventos de simulado
+
+Um evento organiza um **simulado presencial com inscrição**: os alunos matriculados escolhem qual prova vão fazer,
+e o cursinho usa o número de inscritos de cada prova para saber **quantos cadernos imprimir**.
+
+### Criar um evento
+
+1. Clique em **Eventos de simulado** e depois em **Novo evento**.
+2. Preencha:
+
+| Campo | O que colocar |
+|---|---|
+| **Nome** | Obrigatório, até 120 caracteres (ex.: *Simulado de outubro*). |
+| **Informações para os alunos** | Opcional, até 2000 caracteres. É aqui que vão **data, horário e local** do simulado: o evento não tem campos próprios para isso. |
+| **Janela de inscrição** | **Início** e **Fim** (data e hora). O fim tem de ser depois do início. Fora desse período, os alunos não veem o evento. |
+| **Provas que o aluno pode escolher** | Pelo menos uma e no máximo **10**. Só aparecem provas **completas** do cursinho. |
+
+3. Clique em **Salvar**.
+
+Não há limite de vagas.
+
+### O que o aluno vê
+
+Durante a janela de inscrição, os alunos matriculados no cursinho veem o card **Simulado do cursinho** no
+painel deles, com o nome, as informações e o prazo. Eles escolhem a prova (se houver mais de uma) e clicam em
+**Quero fazer**. Até o fim da janela, podem **trocar de prova** ou **desistir**.
+
+Quando a janela abre, os alunos que têm o aplicativo recebem uma **notificação**. Eles também são avisados ao se
+inscrever e ao trocar de prova.
+
+### Situação do evento
+
+| Situação | Significa |
+|---|---|
+| **Agendado** | A janela de inscrição ainda não abriu. |
+| **Inscrições abertas** | Os alunos podem se inscrever. |
+| **Encerrado** | A janela fechou. |
+
+Na lista, cada evento mostra quantos alunos se inscreveram em cada prova.
+
+### Painel do evento
+
+Clique em **Ver inscritos e engajamento** para ver, por prova:
+
+- **Inscritos (imprimir):** quantos cadernos imprimir;
+- **Fizeram** e **Não vieram**;
+- **Engajamento:** quanto dos inscritos fez a prova;
+- **Fizeram sem se inscrever**;
+- a lista dos inscritos, filtrável por prova.
+
+:::note["Fez" depende do cartão enviado]
+O painel considera que o aluno **fez** a prova quando o **cartão-resposta dele foi enviado e lido com sucesso**
+(enviado depois do início da janela de inscrição). Enquanto os cartões não forem enviados, todo mundo aparece em
+**Não vieram**. Não há marcação manual de presença nem exportação.
+:::
+
+### Editar e excluir
+
+- **Editar:** dá para mudar tudo, mas **não dá para tirar uma prova que já tem inscritos**. Mudar a janela não
+  reenvia a notificação de abertura.
+- **Excluir:** pede confirmação e é permitido mesmo com inscritos. O evento some para os alunos, **sem aviso**.
+  Não existe "cancelar" separado.
