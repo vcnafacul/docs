@@ -1,0 +1,137 @@
+---
+title: Como editar a documentação
+description: Passo a passo para escrever e atualizar estas páginas — pelo painel ou pelo GitHub — e para incluir imagens e vídeos.
+sidebar:
+  order: 1
+---
+
+Qualquer pessoa da equipe pode escrever aqui. Não precisa ser dev: ao salvar, a mudança vai para o repositório
+[`vcnafacul/docs`](https://github.com/vcnafacul/docs) e o site se atualiza sozinho em **1 a 2 minutos**.
+
+:::caution[Antes de tudo: dados pessoais]
+Esta documentação é **pública**. Prints e vídeos só com dados de **homologação** ou **fictícios** — nunca com
+nome, CPF, telefone ou e-mail de estudantes de verdade. As telas de administração mostram esses dados: confira
+o print antes de subir.
+:::
+
+## Jeito 1 — pelo painel (recomendado)
+
+O painel é um editor visual: você escreve como num editor de texto, sem ver código.
+
+1. Abra **[o painel](/docs/admin/)**.
+2. Clique em **Entrar Usando Token de Acesso** e cole o seu token
+   (como criar o token: veja [Acesso ao painel](#acesso-ao-painel) mais abaixo).
+3. À esquerda, escolha a seção: **Estudantes**, **Cursinhos** ou **Equipe do projeto**.
+4. Para mudar uma página, clique nela. Para criar uma, clique em **Novo(a)**.
+5. Escreva, e clique em **Salvar**. Pronto: em 1 a 2 minutos a página está no ar.
+
+O botão **Entrar com GitHub** ainda não funciona — use o token.
+
+### O que preencher
+
+| Campo | Para que serve |
+|---|---|
+| **Título** | O nome da página — aparece no topo e no menu. |
+| **Descrição** | Uma frase sobre a página. Aparece na busca. |
+| **Menu → Posição** | Opcional. Número menor aparece primeiro no menu da seção. |
+| **Menu → Nome no menu** | Opcional. Um nome mais curto para o menu (em branco = o título). |
+| **Conteúdo** | O texto da página. |
+
+A **página inicial** do site não aparece no painel (ela tem um layout próprio). Para mudá-la, use o Jeito 2.
+
+## Jeito 2 — pelo GitHub
+
+Bom para correções rápidas.
+
+1. Na página que quer corrigir, desça até o rodapé e clique em **Editar esta página**.
+2. O arquivo abre no editor do GitHub. Edite o texto.
+3. Clique na aba **Preview** para conferir como vai ficar.
+4. Clique em **Commit changes** e confirme. Em 1 a 2 minutos o site atualiza.
+
+## Escrevendo o texto
+
+No painel, a barra de ferramentas faz quase tudo. Se você usar o modo Markdown (ou o Jeito 2), é assim:
+
+| Para… | Escreva | Fica |
+|---|---|---|
+| Título de seção | `## Criar a prova` | um subtítulo |
+| Negrito | `**importante**` | **importante** |
+| Lista | `- item` | • item |
+| Lista numerada | `1. passo` | 1. passo |
+| Link | `[Painel](https://exemplo.com)` | [Painel](https://exemplo.com) |
+| Imagem | `![O que a imagem mostra](/docs/imagens/arquivo.png)` | a imagem |
+
+Para avisos em destaque:
+
+```md
+:::note
+Uma observação.
+:::
+
+:::caution
+Algo que pode dar errado se não tomar cuidado.
+:::
+```
+
+:::note
+Uma observação.
+:::
+
+## Imagens
+
+- **Pelo painel:** no editor, use o botão de imagem e envie o arquivo. Ele vai para a pasta de imagens do site
+  sozinho.
+- **Pelo GitHub:** envie o arquivo em `public/imagens/` (botão **Add file → Upload files**) e use
+  `![descrição](/docs/imagens/nome-do-arquivo.png)` no texto.
+- Descreva o que a imagem mostra no texto entre colchetes: quem usa leitor de tela depende disso.
+- Prefira recortar só a parte da tela que interessa.
+
+## Vídeos do YouTube
+
+O vídeo só carrega quando alguém clica no play — a página continua leve.
+
+- **Pelo painel:** no editor, use o bloco **Vídeo do YouTube** e preencha o código, o título e, se quiser, o
+  segundo em que o vídeo começa.
+- **Pelo GitHub:** escreva numa linha só:
+
+```mdx
+<Video id="CODIGO_DO_VIDEO" titulo="Diagramar um simulado" inicio={95} />
+```
+
+**Onde achar o código:** é o que vem depois de `watch?v=` (ou de `youtu.be/`) no link do vídeo. Em
+`https://www.youtube.com/watch?v=aqz-KE-bpKQ`, o código é `aqz-KE-bpKQ`.
+
+**Começar num trecho:** `inicio` é o tempo em segundos — 1:35 é `95`. Pode deixar de fora para começar do início.
+
+### Gravando um vídeo
+
+- **Um assunto por vídeo**, de 3 a 6 minutos. Melhor três vídeos curtos que um longo.
+- Grave com o **[OBS Studio](https://obsproject.com/pt-br)** (gratuito), em **homologação**.
+- No YouTube, coloque **capítulos** na descrição (uma linha por passo, com o tempo: `0:00 Criar a prova`,
+  `1:35 Cadastrar questões`…). Assim dá para apontar para o trecho certo com o `inicio`.
+- Publique no canal do projeto como **Não listado** se ainda estiver em revisão.
+- O texto da página continua sendo o principal: ele é o que a busca encontra e o que dá para atualizar rápido.
+
+## Onde cada página fica
+
+| Seção do menu | Para quem |
+|---|---|
+| **Estudantes** | quem estuda na plataforma |
+| **Cursinhos** | coordenação e colaboradores dos cursinhos parceiros |
+| **Equipe do projeto** | quem administra a plataforma |
+
+Uma página nova entra no menu sozinha, dentro da seção em que foi criada.
+
+## Acesso ao painel
+
+Cada pessoa cria o próprio token **uma vez** (vale 90 dias):
+
+1. No GitHub, clique na sua foto → **Settings → Developer settings → Personal access tokens → Fine-grained
+   tokens → Generate new token**.
+2. **Resource owner:** `vcnafacul`.
+3. **Repository access:** *Only select repositories* → `vcnafacul/docs`.
+4. **Permissions → Repository permissions → Contents:** *Read and write*.
+5. **Generate token**, copie e cole no painel em **Entrar Usando Token de Acesso**.
+
+O token fica salvo só naquele navegador. Se pedir aprovação, avise um administrador da organização no GitHub.
+Para ter acesso de escrita ao repositório, peça a um administrador para te adicionar ao `vcnafacul/docs`.
