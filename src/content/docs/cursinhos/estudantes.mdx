@@ -118,8 +118,8 @@ Passe o mouse sobre cada ícone da coluna **Ações** para ver o nome dele.
 | **Visualizar** | Abre a carteirinha do estudante. Quem tem Gerenciar Estudantes troca a foto pelo ícone de câmera. | Sempre. |
 | **Declaração de matrícula** | Baixa o PDF da declaração. | Estudante **Matriculado** e com turma. |
 | **Cancelar matrícula** | Veja abaixo. | Estudante **Matriculado**. |
-| **Reativar matrícula** | Veja abaixo. | Estudante **não** matriculado. |
-| **Alterar Turma** | Veja abaixo. | Sempre (com Gerenciar Turmas). |
+| **Reativar matrícula** | Veja abaixo. | Estudante com **Matrícula Cancelada**. |
+| **Alterar Turma** | Veja abaixo. | Estudante **Matriculado** (com Gerenciar Turmas). |
 
 ### Cancelar uma matrícula
 
@@ -142,10 +142,8 @@ aparece na chave **Matrículas canceladas**, com a data e o motivo.
 
 Clique no ícone de reativar e confirme. O estudante volta a **Matriculado**, na mesma turma.
 
-:::caution[Só matrícula cancelada pode ser reativada]
-O botão de reativar também aparece para quem está com **Matrícula Encerrada**, mas nesse caso a plataforma
-recusa. Matrícula encerrada é a de um período letivo que já terminou.
-:::
+Só matrícula **cancelada** pode ser reativada. Quem está com **Matrícula Encerrada** (período letivo que já
+terminou) não tem o botão: para voltar, precisa passar por um novo processo seletivo.
 
 ### Alterar a turma
 
@@ -153,6 +151,9 @@ recusa. Matrícula encerrada é a de um período letivo que já terminou.
 2. Escolha a nova turma. As turmas aparecem agrupadas por período letivo, com o número de alunos, e a turma atual
    vem marcada como **ATUAL**. Dá para buscar por turma, período ou ano.
 3. Confirme.
+
+Só é possível alterar a turma de um estudante **Matriculado**. Para quem está com matrícula cancelada ou
+encerrada, o botão não aparece.
 
 Não é possível mover o estudante para uma turma de um período letivo **que já terminou**.
 

@@ -19,17 +19,22 @@ Para abrir a tela é preciso a permissão **Visualizar Turmas**. Várias ações
 | Ver os períodos, as turmas e a tela de cada turma | Visualizar Turmas |
 | Ver a aba **Desempenho** | Visualizar Turmas |
 | Baixar a **Lista de alunos** (PDF) e ver as matrículas canceladas | Visualizar Turmas |
+| Ver o **Registro de presença** de um aluno e as justificativas de período dele | Visualizar Turmas |
 | Criar, editar e excluir períodos letivos e turmas | **Gerenciar Turmas** |
-| Fazer a chamada, editar e excluir registros de frequência | **Gerenciar Turmas** |
-| Justificar faltas (de um registro, de vários ou de um período) | **Gerenciar Turmas** |
+| Abrir **Registros de Frequência**: fazer a chamada, ver o histórico e o detalhe, editar e excluir registros | **Gerenciar Turmas** |
+| Justificar faltas (de um registro, de vários ou de um período) e excluir justificativas de período | **Gerenciar Turmas** |
 | Gerar os relatórios de frequência (PDF e Excel) | **Gerenciar Turmas** |
-| Usar **Atualizar agora** / **Gerar agora** na aba Desempenho | **Gerenciar Turmas** |
+| Usar **Atualizar mês atual** / **Gerar agora** na aba Desempenho | **Gerenciar Turmas** |
 | Ver o email completo dos alunos (sem ela, o email aparece mascarado) | **Gerenciar Estudantes** |
 | Ver a aba **Simulados por cartão** | **Gerenciar Estudantes** |
 | Trocar a foto do aluno na carteirinha | **Gerenciar Estudantes** |
-| Ver a foto do aluno na carteirinha | **Visualizar Estudantes** |
+| Ver a foto do aluno na carteirinha | **Visualizar Estudantes** ou **Gerenciar Processo Seletivo** |
 
-Sem **Gerenciar Turmas**, a tela fica só para consulta: os botões de criar, editar e excluir não aparecem.
+Sem **Gerenciar Turmas**, a tela fica só para consulta: os botões de criar, editar, excluir, justificar e
+atualizar não aparecem. Na janela **Registro de presença** do aluno, a tabela fica sem as caixas de seleção. Na aba
+**Desempenho** sem dados, no lugar de **Gerar agora** aparece o aviso *"Os dados ainda não foram gerados. Quem
+gerencia turmas pode gerar."* Se uma dessas ações for recusada por falta de permissão, a mensagem diz isso
+(*"Você não tem permissão para…"*).
 :::
 
 ## Períodos letivos
@@ -86,11 +91,12 @@ Não há como adicionar alunos por aqui.
 |---|---|
 | **Nome** | O título da turma. |
 | **Descrição** | Os primeiros 100 caracteres. |
-| **Inscritos** | Quantos alunos já foram ligados à turma, **incluindo** matrículas canceladas e encerradas. Para ver só os ativos, abra a turma. |
+| **Inscritos** | Quantos alunos estão com matrícula ativa na turma, os mesmos da aba **Alunos**. Matrículas canceladas e encerradas não entram. |
 | **Ações** | Ver a turma (olho), editar e excluir. |
 
-O botão de **excluir** só aparece em turma **sem nenhum aluno ligado**, contando também os de matrícula cancelada ou
-encerrada (ou seja, com Inscritos = 0). Ele pede confirmação.
+O botão de **excluir** só aparece em turma com **Inscritos = 0**, e pede confirmação. Mesmo assim, a turma só é
+excluída se **nunca teve aluno ligado**: se algum aluno de matrícula cancelada ou encerrada passou por ela, a
+exclusão é recusada (aparece *"Erro ao excluir turma"*), para não apagar o histórico.
 
 ## A tela da turma
 
@@ -125,8 +131,9 @@ Outros botões da aba:
 #### Carteirinha
 
 O ícone **Ver carteirinha** mostra a carteirinha do aluno: foto, nome, número de matrícula, turma e validade
-(a data de término do período letivo), com o logo do cursinho. Quem tem Gerenciar Estudantes pode trocar a foto
-pelo ícone de câmera. Por esta tela não dá para imprimir: a impressão de carteirinhas fica na tela
+(a data de término do período letivo), com o logo do cursinho. Sem Visualizar Estudantes (ou Gerenciar Processo
+Seletivo), no lugar da foto aparece *"Foto disponível só para quem visualiza estudantes"*. Quem tem Gerenciar
+Estudantes pode trocar a foto pelo ícone de câmera. Por esta tela não dá para imprimir: a impressão de carteirinhas fica na tela
 **Estudantes**.
 
 ## Frequência
@@ -147,6 +154,8 @@ Regras:
   período"*.
 - A lista mostra só os alunos com matrícula ativa **no momento da chamada**. Aluno que entra depois não
   aparece nas chamadas antigas.
+- Turma **sem nenhum aluno matriculado** não tem chamada: no lugar da lista aparece *"Esta turma não tem alunos
+  matriculados."* e o **Confirmar** fica desabilitado.
 - Se o aluno tiver uma justificativa de período cobrindo aquela data, a falta dele já entra justificada.
 
 :::tip
@@ -159,19 +168,29 @@ aba Alunos. Confira a data antes de confirmar.
 A janela **Registros de Frequência** lista todas as chamadas da turma, da mais recente para a mais antiga, com
 quem registrou, a data da aula e o período.
 
-- **Visualizar** (olho): mostra cada aluno daquela chamada como Presente ou Ausente, com a justificativa.
-- **Editar Presença** (lápis, dentro da visualização): troca o aluno entre presente e ausente. O campo
-  **Justificativa** é obrigatório.
+- **Visualizar** (olho): mostra cada aluno daquela chamada como Presente ou Ausente, com a justificativa e a
+  observação da última edição (passe o mouse para ver quem alterou e quando).
+- **Editar Presença** (lápis, dentro da visualização): troca o aluno entre presente e ausente (veja abaixo).
 - **Excluir** (X): pede confirmação e apaga a chamada inteira, com as presenças e justificativas daquele dia.
-  **Não pode ser desfeito.**
+  Ao terminar, aparece *"Registro excluído!"* ou o erro. **Não pode ser desfeito.**
 
 Não dá para mudar a data nem o período de uma chamada. Se errou, exclua e registre de novo.
 
-:::caution[Editar uma presença sempre deixa uma justificativa]
-Como a justificativa é obrigatória na edição, marcar um aluno como **Ausente** por lá gera uma falta
-**justificada**, e não uma falta comum. Use a edição para corrigir erros de chamada, sabendo que o texto fica
-registrado.
-:::
+#### Editar Presença
+
+A janela tem o seletor **Presente** e dois campos:
+
+- **Observação** (obrigatória, até 255 caracteres): o motivo da alteração, por exemplo *"marcado presente por
+  engano"*. Ela fica registrada com quem alterou e quando, cada edição substitui a anterior, e **não muda as
+  porcentagens**.
+- **Justificativa** (opcional, até 255 caracteres): só aparece quando o aluno está **Ausente** e já vem com a
+  justificativa atual, se houver.
+
+| Você deixa o aluno como | Resultado |
+|---|---|
+| **Ausente**, com a Justificativa em branco | **Falta comum**. Se havia justificativa, ela é removida. |
+| **Ausente**, com texto na Justificativa | **Falta justificada**, com esse texto. |
+| **Presente** | Presença. Se havia justificativa, ela é removida. |
 
 ### Justificar faltas
 
@@ -193,8 +212,17 @@ A **justificativa de período**:
 
 As justificativas de período ficam listadas na janela do aluno, com quem criou e quando.
 
-:::caution[Excluir uma justificativa de período não desfaz o efeito]
-As faltas que ela já justificou **continuam justificadas**. Ela só deixa de valer para as chamadas novas.
+**Excluir uma justificativa de período desfaz o efeito:** as faltas que ela justificou **voltam a ser faltas
+comuns**, e ela deixa de valer para as chamadas novas. A confirmação diz quantas faltas vão mudar. Não são
+afetadas:
+
+- as justificativas lançadas individualmente (por **Editar Presença** ou **Aplicar Justificativa**);
+- as faltas em que o texto vindo do período foi alterado à mão depois: elas passam a valer como justificativa
+  individual.
+
+:::caution[Justificativas de período antigas]
+Justificativas de período lançadas antes desta regra existir não guardam quais faltas justificaram. Ao excluir
+uma delas, as faltas continuam justificadas.
 :::
 
 ### Relatórios de frequência
@@ -220,8 +248,11 @@ lado das abas, ou clique num ponto do gráfico **Evolução por mês**.
 :::note[Os números não são em tempo real]
 Eles são recalculados automaticamente **toda segunda-feira às 3h** (o mês atual) e **todo dia 1º às 3h** (todos
 os meses do período). Um simulado feito hoje pode demorar alguns dias para aparecer. Quem tem Gerenciar Turmas
-pode forçar o recálculo do mês atual pelo botão **Atualizar agora**. Em turma de período já encerrado (etiqueta
-**Turma arquivada**), não há recálculo.
+pode forçar o recálculo do mês atual pelo botão **Atualizar mês atual** (em Simulados e em Redação): a tela
+passa a mostrar o mês atual, avisa quando os dados ficam prontos e atualiza a lista de meses. Em turma ainda sem
+dados, o botão **Gerar agora** calcula todos os meses do período, e eles aparecem sozinhos quando ficam prontos,
+já com o mês mais recente selecionado. Em turma de período já encerrado (etiqueta **Turma arquivada**), não há
+recálculo.
 :::
 
 ### Simulados

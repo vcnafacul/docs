@@ -24,7 +24,8 @@ O formulário que o estudante vê tem duas partes, sempre nesta ordem:
 2. **Seções do cursinho**, criadas por você.
 
 As seções globais aparecem na sua tela com a etiqueta **Global** e **Somente leitura**: você vê as questões, mas
-não altera. Você pode usar as questões globais como referência nas [condições](#condições) das suas questões.
+não altera. Só aparecem as seções e questões globais **ativas**. Você pode usar as questões globais como
+referência nas [condições](#condições) das suas questões.
 
 :::caution[O formulário é copiado quando o processo seletivo é criado]
 Ao criar um [processo seletivo](/docs/cursinhos/processo-seletivo/), a plataforma tira uma **cópia** do
@@ -42,7 +43,7 @@ A tela lista as seções (as globais primeiro), com o total de questões e quant
 
 | Coluna | O que mostra |
 |---|---|
-| **Seção** | O nome. Seções globais têm a etiqueta **Global**. |
+| **Seção** | O nome, com a etiqueta **Ativo** ou **Inativo**. Seções globais têm também a etiqueta **Global**. |
 | **Total** / **Ativas** | Quantas questões a seção tem e quantas estão ativas. |
 | **Criado em** / **Atualizado em** | Datas da seção. |
 | **Ações** | Adicionar questão, ativar/desativar, editar, duplicar e excluir. |
@@ -65,24 +66,29 @@ confirmação.
 
 ### Ativar e desativar
 
-O botão **Desativar Seção** tira a seção dos **próximos** processos seletivos, sem apagá-la.
+Desativar tira a seção (ou a questão) dos **próximos** processos seletivos, sem apagá-la.
 
-:::danger[Hoje, seção ou questão desativada some da tela]
-A tela mostra só seções e questões **ativas**. Depois de desativar e recarregar a página, a seção (ou questão)
-**não aparece mais**, e não há como reativá-la pela tela. Se precisar reativar, fale com a equipe do Você na
-Facul.
+- **Seção:** use o botão **Desativar Seção** (ou **Ativar Seção**) na linha da seção.
+- **Questão:** clique em **Visualizar** (ícone de olho) e use a chave **Questão Ativa**. A mudança é salva na
+  hora. A chave fica travada enquanto você está editando a questão.
 
-Antes de desativar, tenha certeza. Se a ideia é tirar a questão de vez, prefira **excluir**.
-:::
+Seções e questões desativadas **continuam na tela**, com a etiqueta **Inativo** e aparência apagada, e podem ser
+reativadas a qualquer momento pelo mesmo botão ou chave.
+
+Não dá para desativar uma questão que é usada nas [condições](#condições) de outra questão ativa: a plataforma
+recusa e mostra quais perguntas usam essa questão. Remova essas condições antes.
 
 ### Duplicar
 
-O botão **Duplicar Seção** pede confirmação e cria uma cópia da seção com todas as questões.
+O botão **Duplicar Seção** pede confirmação e cria uma cópia da seção com todas as questões, no fim da lista.
 
-:::caution[Hoje a cópia não aparece na tela]
-A cópia é criada **desativada** e, pelo motivo do alerta acima, não aparece depois que a tela recarrega. Por
-enquanto, para ter uma seção parecida, crie uma nova e cadastre as questões.
-:::
+- **Nome:** o nome da seção seguido de *"(cópia)"*, por exemplo *"Informações Pessoais (cópia)"*. Se já existir
+  uma seção com esse nome, a cópia ganha um número: *"(cópia 2)"*, *"(cópia 3)"* e assim por diante.
+- **Estado:** a cópia nasce **desativada** (com a etiqueta **Inativo**), como avisam a confirmação e a mensagem
+  de sucesso. Revise e ative quando estiver pronta. As questões copiadas mantêm o estado (ativa ou inativa) das
+  originais.
+- **Condições:** condições que apontam para questões da **própria seção** passam a apontar para as cópias
+  dessas questões. Condições que apontam para questões de outras seções continuam iguais.
 
 ## Questões
 
@@ -97,10 +103,8 @@ enquanto, para ter uma seção parecida, crie uma nova e cadastre as questões.
 | Campo | Obrigatório | O que colocar |
 |---|---|---|
 | **Texto da Pergunta** | Sim | A pergunta, como o estudante vai ler. |
-| **Texto de Ajuda** | Não | Uma dica. Nas questões de **Texto** e **Número**, aparece dentro do campo de resposta, no lugar de "Sua resposta...". Nos outros tipos, não aparece. |
+| **Texto de Ajuda** | Não | Uma dica. Nas questões de **Texto** e **Número**, aparece dentro do campo de resposta, no lugar do texto padrão ("Sua resposta..." ou "Digite um número..."). Nos outros tipos, não aparece. |
 | **Tipo de Resposta** | Sim | Veja a tabela de tipos. |
-
-A questão é sempre criada **ativa**, mesmo que você desligue a chave **Questão Ativa** na criação.
 
 :::note[Toda questão é obrigatória para o estudante]
 Não existe questão opcional: toda questão que aparece para o estudante precisa ser respondida. Para uma questão
@@ -113,12 +117,13 @@ aparecer só em alguns casos, use [condições](#condições).
 |---|---|
 | **Texto** | Texto livre, sem limite de tamanho. |
 | **Número** | Um número **inteiro, zero ou maior**. Não há como definir mínimo ou máximo. |
-| **Sim/Não** | Uma lista com Sim e Não. **Já vem marcado "Não".** |
+| **Sim/Não** | Uma lista com Sim e Não. Começa sem resposta (mostra "Selecione"), e o estudante precisa escolher uma das duas. |
 | **Opções (Dropdown)** | Uma das opções (**Resposta Única**) ou várias (**Múltiplas Respostas**). |
 
 Não há tipos para data, email, CPF ou texto longo.
 
-Em **Opções**, cadastre pelo menos **duas** opções com **Adicionar Opção**, sem repetir o mesmo texto. Trocar o
+Em **Opções**, cadastre pelo menos **duas** opções com **Adicionar Opção**, sem repetir o mesmo texto (espaços no
+começo e no fim são ignorados). A tela não deixa salvar com opções repetidas e mostra quais se repetem. Trocar o
 tipo de resposta apaga as opções já digitadas.
 
 :::tip[Opções que excluem as outras]
@@ -131,32 +136,33 @@ você possui?"* com a opção *"Não possuo nenhum"*.
 
 Clique em **Visualizar** (ícone de olho) na linha da questão e depois em **Editar**. Dá para mudar:
 
-- o texto da pergunta e o texto de ajuda;
+- o texto da pergunta e o texto de ajuda (para tirar a ajuda, apague o texto do campo);
 - em Opções: Resposta Única ou Múltiplas Respostas, e as opções;
 - as condições.
 
+Para tirar todas as condições, clique em **Remover condições** e confirme. A questão passa a aparecer para todos
+os estudantes. Como as outras mudanças, a remoção só vale quando você clica em **Salvar**.
+
 **Não dá para mudar o tipo de resposta.** Se precisar, exclua a questão e crie outra.
 
-Também não dá, hoje, para **apagar** o texto de ajuda nem para **remover todas as condições** de uma questão:
-o valor antigo continua. Nesses casos, exclua e crie a questão de novo.
+Se você tirar ou renomear uma opção que outra questão usa em condição, a plataforma recusa e mostra quais
+perguntas usam essa opção. Atualize essas condições antes.
 
 ### Reordenar
 
 - No computador, arraste a questão pela alça **⋮⋮**.
 - No celular, use **Mover para cima** / **Mover para baixo**.
 
-A nova ordem é salva na hora. Só dá para reordenar dentro da mesma seção. Se a seção tiver alguma questão
-desativada, a reordenação falha com *"Erro ao reordenar questões"* e a ordem volta ao que era.
+A nova ordem é salva na hora. Só dá para reordenar dentro da mesma seção.
 
 ### Excluir
 
 Clique em **Excluir** na linha da questão e confirme. Não pode ser desfeito.
 
-:::caution[Confira as condições antes de excluir ou mudar opções]
-A plataforma **não avisa** se a questão é usada em condições de outras questões. Se você excluir uma questão
-(ou renomear uma opção) que outra questão usa como condição, a condição nunca mais é atendida, e a outra questão
-pode deixar de aparecer para o estudante.
-:::
+Se a questão for usada nas [condições](#condições) de outras questões, a exclusão é recusada com o aviso
+*"Esta questão é usada nas condições de: … Remova essas condições antes."*, que lista o texto dessas
+perguntas. Remova ou altere as condições delas (veja [Ver e editar uma questão](#ver-e-editar-uma-questão)) e
+tente de novo.
 
 ## Condições
 
@@ -172,7 +178,7 @@ Questão escondida não é exigida, e a resposta dela não é guardada.
    - **E (todas as condições)**: a questão aparece só se **todas** forem verdadeiras;
    - **OU (qualquer condição)**: basta **uma**.
 3. Para cada condição, escolha a **Questão de Referência**, o **Operador** e o **Valor esperado**. Use
-   **Adicionar Condição** para incluir mais.
+   **Adicionar Condição** para incluir mais. Trocar a questão de referência limpa o operador e o valor.
 4. Clique em **Salvar Condições**.
 5. **Clique em Criar Questão (ou Salvar).** As condições só são gravadas nesse momento. A mensagem "Condições
    salvas com sucesso!" do passo 4 ainda não grava nada.
@@ -187,12 +193,19 @@ Questão escondida não é exigida, e a resposta dela não é guardada.
 
 Comparações de texto diferenciam maiúsculas de minúsculas: "Igual a" exige o texto exatamente igual.
 
+Enquanto o estudante não responde a questão de referência, nenhuma condição sobre ela é atendida, nem as de
+"Diferente de" e "Não é". A questão condicionada só aparece depois que a de referência é respondida.
+
+### Quais questões podem ser referência
+
+A lista **Questão de Referência** mostra o tipo de cada questão (Texto, Número, Sim/Não, Opções) e traz só
+questões **ativas** das seções **anteriores** e da **mesma** seção, globais incluídas. A própria questão não
+aparece: uma questão não pode ter condição sobre ela mesma.
+
+Ao salvar, a plataforma confere só as condições que você mudou. Se alguma aponta para uma questão inativa ou
+excluída, a questão não é salva, e a mensagem diz quais perguntas são o problema. Condições antigas que você
+não mexeu não impedem salvar o resto da questão.
+
 :::caution[Cuidados com condições]
-- **"Diferente de" e "Não é" não funcionam em questões de Número e Sim/Não:** a questão aparece sempre. Prefira
-  a forma positiva. Por exemplo, em vez de *"Não é Sim"*, use *"É Não"*.
-- Como **Sim/Não já começa marcado "Não"**, uma questão com a condição *"É Não"* aparece assim que o estudante
-  chega na seção.
-- Use como referência só questões de seções **anteriores** ou da **mesma** seção. O estudante preenche uma seção
-  de cada vez, e uma condição que aponta para uma seção posterior nunca é atendida.
-- Não dá para misturar E com OU na mesma questão.
+Não dá para misturar E com OU na mesma questão.
 :::

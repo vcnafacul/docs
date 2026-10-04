@@ -19,7 +19,7 @@ Algumas ações dentro da tela pedem uma permissão a mais:
 |---|---|
 | Ver a lista, filtrar e abrir os detalhes | Gerenciar Colaboradores |
 | Enviar, reenviar, cancelar convites e trocar a função de um convite | Gerenciar Colaboradores |
-| Ativar e inativar colaboradores | Gerenciar Colaboradores |
+| Ativar e inativar colaboradores | Gerenciar Colaboradores (com limites, veja abaixo) |
 | Editar a descrição de um colaborador | Gerenciar Colaboradores |
 | Trocar a função de um colaborador | Gerenciar Colaboradores (com limites, veja abaixo) |
 | Criar funções (**Nova Função**) e mudar as permissões delas (**Editar Função**) | **Gerenciar Permissões do Cursinho** |
@@ -47,19 +47,26 @@ No computador, a equipe aparece numa tabela:
 Clique no título de uma coluna para ordenar por ela. A tabela mostra até 100 pessoas por página.
 
 No celular, a tabela vira uma lista de cartões, um por colaborador. Toque num cartão para abrir os detalhes.
-O celular tem também uma busca por **nome, email ou função**, que não existe na versão de computador.
 
-### Filtros
+### Busca e filtros
+
+A busca e os filtros funcionam igual no computador e no celular, e **se somam**: usar dois ao mesmo tempo
+mostra só quem atende aos dois.
 
 | Filtro | Como funciona |
 |---|---|
+| **Buscar por nome, email, função ou telefone** | Procura no nome, no email, na função e no telefone da pessoa. Não precisa digitar acento: "joao" encontra "João". Para achar pelo telefone, digite pelo menos 3 números; parênteses, traços e espaços são ignorados. |
 | **Matéria** | Mostra quem trabalha com alguma frente daquela matéria. |
 | **Frente** | Só libera depois de escolher a matéria. Mostra quem trabalha com aquela frente. |
 
 As matérias e frentes de cada pessoa são escolhidas por ela mesma, na página **Minha conta**. Quem ainda não
 escolheu nenhuma não aparece quando um desses filtros está ligado.
 
-O botão **Limpar Filtros** aparece quando há filtro ligado e volta a mostrar todo mundo.
+Abaixo dos filtros aparece quantas pessoas estão sendo mostradas do total da equipe, por exemplo
+*"12 de 40 colaboradores"*.
+
+O botão **Limpar Filtros** aparece quando há busca ou filtro ligado, apaga a busca e volta a mostrar todo
+mundo.
 
 ## Convidar uma pessoa
 
@@ -134,17 +141,28 @@ E ninguém consegue trocar a função de um colaborador **inativo**: ative a pes
 
 ### Ativar e inativar
 
-Use a chave **Ativo**. A mudança vale assim que você clica, sem pedir confirmação.
+Use a chave **Ativo**.
 
-:::danger[Inativar tira todas as permissões]
+- **Para inativar**, aparece uma confirmação com o nome da pessoa (por exemplo, *"Inativar Maria Souza?"*) e o que
+  vai acontecer. Clique em
+  **Confirmar** para seguir ou em **Cancelar** para deixar como está.
+- **Para reativar**, a mudança vale assim que você clica, sem confirmação.
+
+Em ambos os casos, uma mensagem no canto da tela avisa se deu certo ou explica por que não deu.
+
+:::caution[Inativar tira o acesso ao cursinho]
 Ao inativar um colaborador:
 
-- a função dele volta a ser a de **aluno**: ele perde o acesso a todas as telas do cursinho;
+- ele perde o acesso a todas as telas do cursinho;
 - ele **sai da página pública** do cursinho.
 
-**Reativar não devolve a função antiga.** Depois de ativar a pessoa de novo, abra **Editar Função** e escolha a
-função dela outra vez.
+A plataforma **guarda a função** que ele tinha. Ao reativar, ele **volta com essa mesma função** e o aviso de
+sucesso mostra qual é. Se essa função não existir mais, a pessoa volta sem ela: o aviso diz isso e é
+só escolher uma função nova em **Editar Função**.
 :::
+
+Ninguém pode inativar o **próprio** cadastro. E quem **não** é administrador do cursinho não pode inativar nem
+reativar um administrador.
 
 ### Foto
 
