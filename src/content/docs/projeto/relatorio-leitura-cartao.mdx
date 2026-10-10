@@ -25,10 +25,21 @@ da leitura.
 - **Quando erra em pé, a leitura quase sempre deixa em branco**, em vez de inventar: é um erro visível no relatório
   ("sem leitura"), não silencioso.
 
-### Melhor cenário
+### Existe cenário com 100% de leitura? Sim
 
-**Caneta preta (ou azul-escura), círculo preenchido por inteiro, papel branco, cartão em pé na foto.** Foto comum ou
-modo documento, tanto faz. Nesse cenário o teste não teve nenhum erro com marcação bem feita.
+**Cartão em pé, caneta preta ou azul, círculo preenchido.** Nesse cenário o teste não teve **nenhum** erro, em
+nenhuma combinação de papel (branco ou reciclado) e de captura (foto comum ou modo documento):
+
+- **~470 marcações** feitas assim foram lidas, **todas certas**: as 400 dos cartões "uma letra só" e as
+  marcações preenchidas dos cartões de marcações de teste, inclusive as **exageradas**, que passam muito da borda
+  ou viram um borrão.
+- Questões **em branco** e com **duas alternativas cheias** também saíram 100% sem leitura, como deveriam.
+
+Com essa amostra, a taxa de erro desse cenário fica **abaixo de 0,7% por questão** com 95% de confiança (regra do
+três: 3 ÷ ~470). Para baixar esse limite, só testando com mais cartões.
+
+O que tira o cenário dos 100% é **a forma de marcar**, não a foto nem o papel: risco único, check (✓), uma
+alternativa cheia junto com outra começada, ou lápis (ver [Análise visual das marcações](#análise-visual-das-marcações)).
 
 ## O que foi testado
 
@@ -57,8 +68,7 @@ Foram dois tipos de cartão:
 
 <figure>
   <img src="/docs/imagens/leitura-cartao/deitado.jpeg" alt="Cartão deitado na foto" width="420" />
-  <img src="/docs/imagens/leitura-cartao/marcacoes-de-teste-lapis.jpeg" alt="Cartão com marcações de teste a lápis" width="300" />
-  <figcaption>À esquerda, cartão deitado: o envio é concluído e as letras saem erradas. À direita, marcações de teste a lápis.</figcaption>
+  <figcaption>Cartão deitado: o envio é concluído e as letras saem erradas.</figcaption>
 </figure>
 
 ## Como foi medido
@@ -133,6 +143,56 @@ de captura e papel.
   vista, e a cheia é lida. É a **única** origem de "leu errado" em pé: os 30 casos são esta questão.
 - **Check e risco único** não são confiáveis: o aluno precisa preencher o círculo.
 
+## Análise visual das marcações
+
+Cada foto em pé foi ampliada e olhada questão a questão. Dois pontos mudam a leitura dos números acima:
+
+- **Documento e foto de um mesmo cenário são o mesmo cartão físico**, fotografado de dois jeitos (as marcas são
+  idênticas). No total foram **16 folhas preenchidas**: 10 de "uma letra só" (5 letras × 2 papéis) e 6 de marcações
+  de teste (3 instrumentos × 2 papéis). Isso permite comparar foto × documento **com a mesma marcação**.
+- **Os cartões "uma letra só" têm marcação limpa**: círculo preenchido por inteiro, dentro da borda, a caneta
+  preta, em todas as 20 fotos em pé. Nenhum tem marcação exagerada; elas estão só nos cartões de marcações de teste.
+
+<figure>
+  <img src="/docs/imagens/leitura-cartao/marcacoes-caneta-preta.jpg" alt="Marcações de teste a caneta preta, ampliadas" width="620" />
+  <figcaption>Marcações de teste a caneta preta (modo documento, papel branco), ampliadas. Lidas 18 de 20: falharam a 4 (C começada + D cheia, leu D) e a 18 (risco único).</figcaption>
+</figure>
+
+| Questão | Como foi marcada (vendo a foto) | Caneta | Lápis |
+|---|---|---|---|
+| 2, 3, 5, 8, 9, 11, 17 | Círculo preenchido | ✅ sempre | ❌ quase sempre (a marca fica cinza e transparente) |
+| 19 | Borrão bem maior que o círculo | ✅ | ✅ |
+| 20 | Riscos verticais formando um retângulo por cima da alternativa | ✅ | ✅ |
+| 12, 13, 15 | Círculo preenchido com hachura (listras), sem pintar tudo | ✅ | ❌ |
+| 16 | Hachura mais leve, com espaços em branco | ✅ (caneta preta, papel reciclado, foto: ❌) | ❌ |
+| 14 | Meia-lua (metade do círculo pintada) | ✅ | ❌ |
+| 7 | X por cima do círculo | ✅ | ❌ |
+| 10 | Check (✓) cortando o círculo | ⚠️ falhou em 3 de 8 fotos, todas em papel reciclado | ❌ |
+| 18 | Um único risco diagonal, o círculo continua vazio | ❌ (caneta azul em papel branco: ✅) | ❌ |
+| 4 | C com um pedaço pintado + D cheia (esperado: em branco) | ❌ lê D | ⚠️ |
+| 1 · 6 | Em branco · A e B cheias (esperado: em branco) | ✅ | ✅ |
+
+**O que define se a marca é lida é quanto do círculo fica escuro**, não se a marca é bonita:
+
+- Marcação **exagerada é lida sem problema**: borrão passando da borda (19) e riscos por cima (20) saíram 100%,
+  até a lápis. Não há motivo para pedir ao aluno "não passe da borda".
+- Marcação **que deixa o círculo quase vazio falha**: risco único (18) quase nunca é lido, e o check (10) falha
+  com frequência no papel reciclado, onde o fundo é mais escuro.
+- **Hachura e meia-lua passam com caneta**, mas ficam no limite: a hachura mais leve (16) e o check (10) falharam
+  na foto do cartão de caneta preta em papel reciclado e passaram no modo documento **do mesmo cartão**. Foram as
+  únicas diferenças entre foto e documento com caneta, nas 8 fotos.
+- **Lápis:** mesmo o círculo "preenchido" fica cinza e deixa ver a borda impressa por baixo. Só as marcas mais
+  densas passam: o borrão (19) e os riscos (20) sempre, a 11 e a 17 quase sempre. No papel reciclado, que é cinza,
+  o contraste some.
+- **Questão 4:** a leitura ignora a alternativa só começada e lê a cheia. Se a intenção do aluno era a cheia (ele
+  começou C e mudou de ideia), a leitura acertou; pela regra deste teste (duas marcadas = em branco), errou. **Vale
+  decidir qual das duas regras a plataforma quer.**
+
+<figure>
+  <img src="/docs/imagens/leitura-cartao/marcacoes-lapis.jpg" alt="Marcações de teste a lápis, ampliadas" width="620" />
+  <figcaption>As mesmas marcações a lápis (modo documento, papel branco): leitura 9 de 20. A marca fica cinza e a borda impressa aparece por baixo.</figcaption>
+</figure>
+
 ## Achados além da leitura
 
 - **Reenvio que falha por erro do sistema.** O cartão do aluno 20250025 foi lido 20/20 no primeiro envio. Um
@@ -146,9 +206,9 @@ de captura e papel.
 
 1. **Tratar a orientação no sistema.** Girar a foto automaticamente antes de ler, ou recusar o envio de cartão
    deitado. Hoje o cartão deitado vira nota errada sem aviso, e o cursinho não tem como perceber.
-2. **Orientar o cursinho e os alunos:** caneta preta ou azul-escura, **nunca lápis**; preencher o círculo inteiro
-   (X, check e risco não são lidos com segurança); para corrigir, não deixar marca parcial em outra alternativa;
-   fotografar com o cartão em pé. O próprio cartão já pede caneta; vale reforçar na página [Provas e
+2. **Orientar o cursinho e os alunos:** caneta preta ou azul-escura, **nunca lápis**; **pintar o círculo** (passar
+   da borda não atrapalha; risco único e check não são lidos); para corrigir, não deixar marca começada em outra
+   alternativa; fotografar com o cartão em pé. O próprio cartão já pede caneta; vale reforçar na página [Provas e
    simulados](/docs/cursinhos/provas/#enviar-cartão).
 3. **Papel branco quando possível**, principalmente se houver risco de o aluno usar caneta azul clara.
 
@@ -158,6 +218,7 @@ de captura e papel.
   cada uma enviada três vezes, e os 19 deitados são capturas giradas de cartões em pé).
 - Os cartões "uma letra só" usaram **só caneta preta**: o efeito do instrumento foi medido só nos cartões de
   marcações de teste.
-- Um único cartão impresso (#001), fotos de um único celular, em um único ambiente.
+- **16 folhas preenchidas**, cada uma fotografada de dois jeitos (foto comum e modo documento). Um único modelo de
+  cartão (#001), fotos de um único celular, em um único ambiente.
 - As fotos guardadas no envio foram conferidas com as da pasta do teste: 55 de 75 são idênticas byte a byte; as dos
   19 deitados e a do 20250025 estão com outra compressão, na mesma orientação.
