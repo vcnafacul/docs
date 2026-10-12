@@ -67,7 +67,8 @@ confirmação e não pode ser desfeita.
 
 :::caution[Quando o período termina, as matrículas são encerradas]
 À **meia-noite depois da data de fim**, a plataforma encerra o período sozinha: **todos os alunos** das turmas
-dele passam para a situação **Matrícula Encerrada**.
+dele passam para a situação **Matrícula Encerrada**. Eles continuam aparecendo na turma, para consulta (veja
+[Turma encerrada](#turma-encerrada)), mas saem da chamada.
 
 Se o curso vai durar mais do que o previsto, **edite a data de fim antes** que ela chegue.
 :::
@@ -91,24 +92,32 @@ Não há como adicionar alunos por aqui.
 |---|---|
 | **Nome** | O título da turma. |
 | **Descrição** | Os primeiros 100 caracteres. |
-| **Inscritos** | Quantos alunos estão com matrícula ativa na turma, os mesmos da aba **Alunos**. Matrículas canceladas e encerradas não entram. |
+| **Inscritos** | Quantos alunos a turma tem: os **matriculados** e os de **matrícula encerrada**, os mesmos da aba **Alunos**. Matrículas canceladas não entram. |
 | **Ações** | Ver a turma (olho), editar e excluir. |
 
 O botão de **excluir** só aparece em turma com **Inscritos = 0**, e pede confirmação. Mesmo assim, a turma só é
-excluída se **nunca teve aluno ligado**: se algum aluno de matrícula cancelada ou encerrada passou por ela, a
-exclusão é recusada (aparece *"Erro ao excluir turma"*), para não apagar o histórico.
+excluída se **nunca teve aluno ligado**: se algum aluno de matrícula cancelada passou por ela, a exclusão é
+recusada (aparece *"Erro ao excluir turma"*), para não apagar o histórico. Turma de período encerrado, com alunos,
+não pode ser excluída.
 
 ## A tela da turma
 
 Clique no olho de uma turma para abri-la. No topo aparecem o período, as datas de início e término, o número de
 alunos e o número de registros de frequência.
 
+### Turma encerrada
+
+Quando o período letivo da turma já terminou, aparece no topo o aviso **"Turma encerrada."**, com a data de
+término. Os alunos continuam na aba **Alunos**, agora com **Matrícula Encerrada**, e as informações da turma
+(presença, desempenho, simulados por cartão) seguem disponíveis para consulta. Não há mais chamada para eles.
+
 A tela tem três abas: **Alunos**, **Desempenho** e **Simulados por cartão**. A última só aparece para quem tem
 Gerenciar Estudantes. A aba aberta fica no endereço da página, então dá para mandar o link já na aba certa.
 
 ### Aba Alunos
 
-Mostra os alunos com matrícula ativa, em ordem alfabética:
+Mostra os alunos **matriculados** e os de **matrícula encerrada** (quando o período já terminou), em ordem
+alfabética. Os de matrícula cancelada ficam na chave **Matrículas canceladas**:
 
 | Coluna | O que mostra |
 |---|---|
@@ -123,7 +132,7 @@ chamada aparece com "—".
 
 Outros botões da aba:
 
-- **Lista de alunos:** baixa um PDF com matrícula, nome e email dos alunos ativos.
+- **Lista de alunos:** baixa um PDF com matrícula, nome e email dos alunos da aba.
 - **Matrículas canceladas:** a chave troca a lista pelos alunos que tiveram a matrícula cancelada, com a data
   e a justificativa do cancelamento.
 - **Registros de Frequência:** abre a chamada e os relatórios (veja abaixo). Só aparece com Gerenciar Turmas.
@@ -257,7 +266,8 @@ recálculo.
 
 ### Simulados
 
-Entram os simulados feitos **pela plataforma** e os **por cartão-resposta**, dos alunos com matrícula ativa.
+Entram os simulados feitos **pela plataforma** e os **por cartão-resposta**, dos alunos matriculados e dos de
+matrícula encerrada.
 
 | Indicador | O que é |
 |---|---|
@@ -288,6 +298,9 @@ Quando poucos alunos participaram, aparece o aviso **Amostra pequena**: os núme
 É o relatório dos **cartões-resposta** enviados pelos alunos desta turma, simulado por simulado. Quem fez o
 simulado pela plataforma **não aparece aqui**: para a visão geral, use a aba Desempenho. Esta aba não envia
 cartões.
+
+Entram os alunos que estão **ou estiveram** na turma: quem enviou o cartão e depois teve a matrícula cancelada ou
+encerrada continua aqui, com a situação ao lado da matrícula.
 
 1. Escolha o **Simulado**. A lista abre no que recebeu cartão mais recentemente.
 2. Veja o resumo: média e distribuição de acertos, e quantos alunos entraram no cálculo.
