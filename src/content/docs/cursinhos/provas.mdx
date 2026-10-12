@@ -11,6 +11,9 @@ organizar **eventos de simulado** presencial.
 
 **Onde fica:** no painel, card **Cursinho** → **Provas**.
 
+Para provas no formato do ENEM (Dia 1 com Inglês e Espanhol, caderno e cartão únicos), veja também
+[Provas no formato ENEM](/docs/cursinhos/provas-enem/).
+
 :::note[Quem pode usar]
 Para abrir a tela é preciso a permissão **Visualizar provas (cursinho)**. Várias ações pedem permissões a mais:
 
@@ -18,14 +21,14 @@ Para abrir a tela é preciso a permissão **Visualizar provas (cursinho)**. Vár
 |---|---|
 | Ver as provas, filtrar e abrir os detalhes | Visualizar provas (cursinho) |
 | Ver os eventos de simulado e o painel de cada um | Visualizar provas (cursinho) |
-| Baixar o **caderno de questões**, o **cartão-resposta** e os PDFs da prova e do gabarito | Visualizar provas (cursinho) |
+| Baixar o **caderno de questões**, o **cartão-resposta** (do simulado ou da prova) e os PDFs da prova e do gabarito | Visualizar provas (cursinho) |
 | **Nova Prova** e **Duplicar prova** | **Cadastrar provas (cursinho)** |
 | **Editar dados** e **Excluir** a prova | **Cadastrar provas (cursinho)** |
 | **Editar arquivos** da prova e a **janela de disponibilidade** do simulado | **Cadastrar provas (cursinho)** |
 | Criar, editar e excluir **eventos de simulado** | **Cadastrar provas (cursinho)** |
 | **Gerenciar Categorias** | **Gerenciar categorias (cursinho)** |
 | **Enviar cartão** | **Visualizar Estudantes** |
-| Abrir o **relatório** do simulado, baixar a foto do cartão, reenviar e **excluir envio** | **Gerenciar Estudantes** |
+| Abrir o **relatório** do simulado ou da prova, baixar a foto do cartão, reenviar e **excluir envio** | **Gerenciar Estudantes** |
 | Montar as questões e aplicar novas versões | **Editar questões e montar as provas do cursinho** |
 
 Quando falta permissão para um botão, no topo da tela ou nos detalhes da prova e dos simulados, ele fica
@@ -38,7 +41,7 @@ desabilitado e, ao passar o mouse, diz qual permissão falta.
 |---|---|
 | **Categoria** | O "formato" da prova: exame, duração e quantas questões ela deve ter (ou "livre", sem número fixo). |
 | **Prova** | O conjunto de questões numeradas, com nome, ano, edição, categoria e, se quiser, o PDF e o gabarito. |
-| **Simulado** | A versão da prova aplicada aos alunos. É dele que saem o caderno, o cartão-resposta e o relatório. Cada prova do cursinho tem **um** simulado, criado junto com ela e com o mesmo nome. |
+| **Simulado** | A versão da prova aplicada aos alunos. É dele que saem o caderno, o cartão-resposta e o relatório. Cada prova do cursinho tem **um** simulado, criado junto com ela e com o mesmo nome. A exceção é a prova **Enem Dia 1**, que tem dois (Inglês e Espanhol): veja [Provas no formato ENEM](/docs/cursinhos/provas-enem/). |
 
 ### Do zero até aplicar
 
@@ -92,6 +95,10 @@ quantas provas e simulados cada uma está em uso.
 **Excluir:** só categorias **que não estão em uso** por nenhuma prova ou simulado. Não há como editar uma
 categoria: se precisar mudar, crie outra.
 
+As categorias **Enem Dia 1** e **Enem Dia 2** também aparecem na lista, com o aviso *"🔒 Categoria da plataforma,
+vale para todos os cursinhos — não pode ser excluída"*. Elas são da plataforma e servem para montar
+[provas no formato ENEM](/docs/cursinhos/provas-enem/).
+
 ## Criar uma prova
 
 1. Clique em **Nova Prova**.
@@ -99,7 +106,8 @@ categoria: se precisar mudar, crie outra.
 
 | Campo | O que colocar |
 |---|---|
-| **Categoria** | Uma categoria do cursinho. Define quantas questões a prova deve ter. |
+| **Exame** | O primeiro campo. A lista de **Categoria** passa a mostrar só as categorias desse exame, e trocar o exame limpa a categoria escolhida. |
+| **Categoria** | Uma categoria do cursinho (ou **Enem Dia 1**/**Enem Dia 2**). Define quantas questões a prova deve ter. Fica desabilitada até você escolher o exame. |
 | **Nome da prova** | Obrigatório. Não pode repetir o nome de outra prova do cursinho. |
 | **Edição** | Regular, Digital ou Reaplicação/PPL. |
 | **Aplicação** | 1ª, 2ª ou 3ª aplicação. |
@@ -125,7 +133,12 @@ Clique numa prova para abrir os detalhes:
 - **Download da Prova** (só se a prova tiver PDF; sem ele, aparece "Sem PDF da prova") e **Download do Gabarito**
   (só se houver gabarito).
 - **Editar arquivos** (lápis): adiciona ou substitui o PDF da prova e o gabarito.
-- **Duplicar prova**, **Editar dados**, **Excluir** e **Ver simulados**.
+- **Duplicar prova**, **Editar dados**, **Excluir**, **Ver simulados** e **Relatório da prova**.
+- **Relatório da prova:** junta os cartões de todos os simulados da prova numa tela só (pede **Gerenciar
+  Estudantes**). Fica desabilitado até algum cartão ser enviado. Numa prova com um simulado, mostra o mesmo que o
+  relatório dele.
+- Nas provas **Enem Dia 1** e **Enem Dia 2**, também **Cartão da prova** e **Caderno da prova** (veja
+  [Provas no formato ENEM](/docs/cursinhos/provas-enem/#cartão-e-caderno-da-prova)).
 
 ### Editar dados e excluir
 
@@ -176,8 +189,8 @@ E as ações:
 
 | Ação | O que faz |
 |---|---|
-| **Baixar cartão de resposta** | Baixa o PDF do cartão para imprimir. Só com o simulado liberado. |
-| **Baixar caderno de questões** | Baixa um pacote **.zip para abrir no Overleaf**, onde o caderno é montado e exportado em PDF. Se aparecer "Caderno gerado com observações", confira as questões marcadas. |
+| **Baixar cartão de resposta** | Mostra as **orientações para a leitura do cartão** (veja abaixo) e baixa o PDF do cartão para imprimir. Só com o simulado liberado. |
+| **Baixar caderno de questões** | Baixa um pacote **.zip para abrir no Overleaf**, onde o caderno é montado e exportado em PDF. Se aparecer "Caderno gerado com observações", confira as questões marcadas. Só com o simulado liberado. |
 | **Editar janela de disponibilidade** | Define de quando até quando o simulado fica disponível. O início tem de ser antes do fim. |
 | **Ver relatório do cartão-resposta** | Abre o relatório dos cartões enviados (o mesmo da aba [Simulados por cartão](/docs/cursinhos/turmas/#aba-simulados-por-cartão) da turma, mas com todas as turmas). Fica desabilitado até algum cartão ser enviado. |
 
@@ -186,6 +199,21 @@ Cada vez que você baixa o cartão, ele sai com um **número próprio** (#001, #
 o mesmo número enviado duas vezes **para o mesmo aluno**. Imprimir várias cópias de um mesmo download funciona
 normalmente para alunos diferentes.
 :::
+
+### Orientações para a leitura do cartão
+
+Antes de baixar o cartão, e no topo da janela **Enviar cartão**, a plataforma mostra o quadro **"Para a leitura do
+cartão dar certo"**. Passe estas orientações aos alunos antes da prova:
+
+- **Caneta preta ou azul.** Lápis não serve: no teste, só 4 em cada 10 marcações a lápis foram lidas.
+- **Pinte a bolinha inteira.** Pode passar da borda. Risco, ✓ e X não são lidos com segurança.
+- **Fotografe o cartão em pé.** Inteiro, com os 4 quadradinhos dos cantos aparecendo. Foto comum ou digitalizada,
+  tanto faz.
+- **Confira o relatório.** Questão que não deu para ler aparece como "sem leitura": é lá que você vê se precisa
+  reenviar a foto.
+
+O link **Saber mais** abre o [relatório da qualidade de leitura](/docs/projeto/relatorio-leitura-cartao/), com os
+testes que deram origem a essas orientações.
 
 ## Enviar cartão
 
@@ -199,14 +227,16 @@ Depois da prova, a coordenação envia a foto de cada cartão preenchido. **O al
 5. Clique em **Enviar cartão** e **confirme**. A confirmação lembra que, se o aluno estiver errado, será preciso
    excluir o envio no relatório do simulado.
 
-A plataforma lê o QR Code para saber de qual simulado é o cartão, e a **leitura das respostas** é feita depois, em
-fila. O envio não mostra o resultado: a mensagem de sucesso indica onde acompanhar, no **relatório do simulado**
+A plataforma lê o QR Code para saber de qual simulado (ou de qual prova, no [cartão da prova](/docs/cursinhos/provas-enem/#cartão-da-prova-um-cartão-com-inglês-ou-espanhol)) é o cartão, e a **leitura das
+respostas** é feita depois, em fila. O envio não mostra o resultado: a mensagem de sucesso indica onde acompanhar, no **relatório do simulado**
 (**Detalhes** → **Ver simulados**).
 
 A matrícula escrita no cartão **não é conferida**: vale o aluno escolhido na tela.
 
-**Dicas para a foto:** cartão inteiro, reto, bem iluminado, sem reflexo e com o QR Code nítido. Foto torta ou
-desfocada costuma dar *"Não foi possível ler o QR do cartão"*.
+**Dicas para a foto:** siga as [orientações](#orientações-para-a-leitura-do-cartão): cartão inteiro, em pé, bem
+iluminado, sem reflexo e com o QR Code nítido. Se a foto sair **deitada**, a plataforma a endireita sozinha pelo QR
+Code antes da leitura, e é essa foto endireitada que fica guardada. Foto desfocada costuma dar *"Não foi possível
+ler o QR do cartão"*.
 
 | Mensagem | O que fazer |
 |---|---|
@@ -233,6 +263,12 @@ estiver em andamento, a exclusão é recusada: espere terminar.
 Os cartões são lidos **um de cada vez**. Com muitos cartões, os últimos podem levar dezenas de minutos. Se a
 leitura de um cartão não terminar em 60 minutos, ele aparece como **Falhou** no relatório, e dá para reenviar.
 :::
+
+### Alunos que saíram do cursinho
+
+Para **enviar** um cartão, o aluno precisa estar **matriculado**. Depois de enviado, o cartão continua no
+relatório mesmo que a matrícula seja **cancelada** ou **encerrada**: ao lado do número de matrícula aparece a
+situação (*Matrícula Cancelada* ou *Matrícula Encerrada*). Para alunos matriculados, nada aparece.
 
 ## Eventos de simulado
 

@@ -35,6 +35,14 @@ Nesse momento ele recebe o **número de matrícula**.
 
 A partir daí, a turma e a situação da matrícula são cuidadas por aqui.
 
+:::caution[Uma matrícula ativa por estudante]
+Um estudante só pode estar **Matriculado** em **um** cursinho por vez, somando todos os cursinhos da plataforma.
+Se ele já tiver matrícula ativa em outro lugar, a confirmação da matrícula é recusada com a mensagem *"Não é
+possível matricular: o estudante já possui matrícula ativa no cursinho (nome), no período letivo (nome) (ano), de
+(início) a (fim)."* Ele pode se **inscrever** em outros processos seletivos à vontade: o bloqueio é só na
+matrícula.
+:::
+
 ## A tela
 
 No topo aparece o nome do cursinho. A lista é paginada (15 por página, dá para mudar).
@@ -56,7 +64,7 @@ No topo aparece o nome do cursinho. A lista é paginada (15 por página, dá par
 |---|---|
 | **Matriculado** | Estudante ativo. Aparece na turma e nas chamadas. |
 | **Matrícula Cancelada** | O cursinho cancelou a matrícula. Pode ser reativada. |
-| **Matrícula Encerrada** | O período letivo da turma terminou. Acontece sozinho, à meia-noite depois da data de fim do período (veja [Turmas](/docs/cursinhos/turmas/#períodos-letivos)). |
+| **Matrícula Encerrada** | O período letivo da turma terminou. Acontece sozinho, à meia-noite depois da data de fim do período (veja [Turmas](/docs/cursinhos/turmas/#períodos-letivos)). Continua aparecendo na turma, para consulta, mas sai das chamadas. |
 
 No celular, a tabela vira uma lista de cartões, com as mesmas ações.
 
@@ -144,6 +152,9 @@ Clique no ícone de reativar e confirme. O estudante volta a **Matriculado**, na
 
 Só matrícula **cancelada** pode ser reativada. Quem está com **Matrícula Encerrada** (período letivo que já
 terminou) não tem o botão: para voltar, precisa passar por um novo processo seletivo.
+
+Se, enquanto a matrícula estava cancelada, o estudante se matriculou em outro cursinho, a reativação é recusada
+(*"Não é possível reativar a matrícula: o estudante já possui matrícula ativa no cursinho…"*).
 
 ### Alterar a turma
 
