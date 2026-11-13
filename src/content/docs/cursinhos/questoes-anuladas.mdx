@@ -1,0 +1,132 @@
+---
+title: Questões anuladas
+description: Como anular uma questão numa prova, o que muda na nota e nos relatórios, o caderno com selo, o recálculo dos resultados e o que o aluno vê.
+sidebar:
+  order: 8
+---
+
+Às vezes uma questão da prova tem um problema: enunciado com erro, nenhuma alternativa certa, duas certas.
+Em vez de trocar a questão depois da aplicação, o cursinho pode **anulá-la naquela prova**. Ela continua no
+lugar, com o mesmo número, mas **sai da análise**: não conta na nota nem nos relatórios.
+
+**Onde fica:** no **Banco de Questões**, abra a questão → aba **Classificação** → escolha a prova no
+campo **Prova** → **Anular nesta prova**, ao lado do título do campo.
+
+Na lista de **Provas**, a coluna **Anuladas** mostra quantas questões estão anuladas em cada prova.
+
+:::note[Quem pode anular]
+- O **cursinho dono da prova**, com a permissão **Editar questões e montar as provas do cursinho**.
+- A **equipe da plataforma** (administradores), em qualquer prova, inclusive nas dos cursinhos.
+
+Quem não pode anular não vê o botão.
+:::
+
+## A anulação vale para uma prova
+
+A mesma questão pode estar em várias provas. Anular vale **só para a prova escolhida**: nas outras ela
+continua normal. No Banco de Questões, a questão ganha o selo **Anulada em N provas**, e o filtro **Anuladas**
+mostra todas.
+
+## Justificativa obrigatória
+
+Ao anular, escolha o **motivo** e escreva a **justificativa** (os dois são obrigatórios):
+
+| Motivo |
+|---|
+| Enunciado com erro |
+| Sem alternativa correta |
+| Mais de uma alternativa correta |
+| Repetida de outro exame |
+| Fora do edital |
+| Outro |
+
+O texto é o que o professor e o aluno vão ler depois. Para mudar o motivo ou o texto, use **Editar
+justificativa**. Para voltar atrás, **Desanular** (pede confirmação). Os dois ficam ao lado do título do
+campo **Prova**.
+
+No topo da aba aparece o aviso **Anulada em**, com cada prova em que a questão está anulada. A prova
+escolhida no campo ganha a marca *nesta prova*. Com mais de uma prova, as justificativas ficam atrás do
+botão **Ver justificativas**.
+
+## "Fora da análise": como a nota fica
+
+A anulada sai **do total e dos acertos**. Numa prova de 90 questões com 1 anulada, quem acertou 50 das outras
+89 fica com **50 de 89**, nunca "51 de 90".
+
+:::caution[Quem acertou a anulada não ganha ponto]
+A anulada não vale para ninguém: quem acertou e quem errou ficam iguais nela. Isso evita que a anulação mude
+a nota só de parte da turma.
+:::
+
+## Adicionar uma questão que já foi anulada em outra prova
+
+Quando você adiciona a uma prova uma questão que já está anulada em outra, aparece o aviso **Questão já
+anulada em outra prova**, com as provas e as justificativas. Escolha:
+
+- **Cancelar**: não adiciona.
+- **Adicionar normal**: a questão entra valendo nesta prova.
+- **Adicionar como anulada**: entra já anulada; o motivo e o texto vêm preenchidos com os da outra prova e
+  podem ser editados.
+
+## Caderno de questões
+
+A anulada **sai no caderno** com o selo **QUESTÃO ANULADA: não responda**. Ao gerar o caderno de uma prova
+com anulada, a plataforma avisa quais números estão anulados:
+
+- **Gerar mesmo assim**: gera com o selo.
+- **Cancelar**: não gera. Se não quiser imprimir a anulada, troque a questão na prova antes.
+
+O **cartão-resposta não muda**: a numeração continua a mesma, e o que o aluno marcar na anulada é ignorado.
+
+No **simulado digital**, o aluno não responde a anulada: ela aparece com um X e é pulada na navegação.
+
+## Resultados que já existiam: o recálculo
+
+Anular **não muda sozinho** os resultados que já foram calculados. Eles continuam contando a questão até
+alguém pedir o recálculo. Assim, quem anulou por engano pode desanular sem que nenhum aluno tenha sido avisado.
+
+No **relatório** do simulado ou da prova aparece o aviso:
+
+> A questão 45 foi anulada (sem alternativa correta) depois que 30 resultados foram calculados. Esses
+> resultados ainda contam a questão, e médias, discriminação e comparação podem estar erradas.
+
+Clique em **Recalcular**. O relatório mostra o progresso ("Recalculando 12 de 30…") e, no fim, quantos
+resultados não puderam ser recalculados, se houver. Enquanto houver resultado antigo, o **índice de
+discriminação** não é calculado, e cada linha antiga fica marcada como "Nota calculada antes da anulação".
+
+O recálculo também atualiza os **indicadores das turmas**.
+
+## O que o aluno vê
+
+- **No resultado**, a anulada aparece com X e pode ser aberta: o aluno lê o enunciado e o motivo da anulação.
+  Os acertos mostram o total considerado ("4 de 9 · 1 questão anulada").
+- **Antes do recálculo**, o resultado avisa: "A questão 45 foi anulada. Sua nota será atualizada quando o
+  cursinho recalcular os resultados."
+- **Depois do recálculo**, o aluno recebe uma **notificação** (push), só quem teve o resultado recalculado.
+  Ela sai **30 minutos depois do último recálculo** da prova: se recalcularem de novo nesse meio-tempo, o
+  aluno recebe uma notificação só, e nenhuma se a nota dele voltou ao que era:
+
+  > 📝 Nota atualizada: *nome da prova*
+  > Uma questão da prova *nome da prova* foi anulada e sua nota foi atualizada. Acesse a plataforma para
+  > mais informações.
+
+  O resultado passa a mostrar "Nota atualizada em dd/mm: questão 45 anulada."
+
+**Anular não manda notificação.** Só o recálculo manda.
+
+No **simulado digital** (feito na plataforma, sem cartão), a nota é atualizada quando o aluno abre o resultado.
+
+## Perguntas frequentes
+
+**Anulei por engano. E agora?**
+Use **Desanular**. Se ninguém tiver pedido o recálculo, nenhum resultado mudou, o relatório não mostra
+aviso e nenhum aluno foi avisado.
+Se já recalcularam, o relatório mostra "A questão 45 voltou a valer…": clique em **Recalcular** de novo e os
+resultados voltam a contar a questão. Se isso acontecer em até 30 minutos do primeiro recálculo, o aluno
+não recebe notificação nenhuma, porque a nota dele voltou ao que era.
+
+**Posso anular depois de enviar os cartões?**
+Sim. É o caso mais comum. Anule e depois clique em **Recalcular** no relatório.
+
+**A questão some do caderno?**
+Não. Ela sai com o selo. Para tirá-la do caderno, troque a questão na prova antes de gerar.
