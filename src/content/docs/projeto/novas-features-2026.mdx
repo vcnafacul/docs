@@ -1,0 +1,135 @@
+---
+title: Novas features de 2026
+description: O que entrou em produção no Você na Facul de outubro de 2025 a novembro de 2026, agrupado por feature e não por repositório.
+sidebar:
+  order: 5
+---
+
+O que foi para **produção** de 01/10/2025 até a última versão publicada de cada serviço (outubro de 2026). As entregas
+estão agrupadas por **feature**: quando uma tela nova precisou de mudança em vários serviços, ela aparece uma vez só,
+com os PRs de cada um.
+
+- **Serviços:** client (site), api, ms-simulado (provas e simulados), vcnafacul-form (formulário do processo seletivo)
+  e ms-omr (leitura do cartão-resposta).
+- **O que conta como produção:** até abril de 2026, o merge `develop → main`; desde a versão `1.0.0` (28/03/2026), a
+  publicação de uma tag de versão.
+- **Ainda não está aqui:** o que já está em homologação e vai para produção até o fim do ano. Esse trecho entra nesta
+  página depois.
+
+:::note
+O primeiro deploy do período (15/11/2025) levou trabalho feito entre julho e setembro de 2025, porque o deploy
+anterior tinha sido em junho de 2025. Esse trabalho conta como entrega do período.
+:::
+
+## Linha do tempo
+
+| Quando | O que foi para produção |
+|---|---|
+| 15–18/11/2025 | Formulário modular do processo seletivo, acompanhamento de inscrição, declaração de matrícula, novo banco de questões, monitoramento, sessão com refresh token, gestão do cursinho parceiro |
+| dez/2025 – mar/2026 | Conteúdos no ms-simulado, colaborador × frente, logs de erro, autopreenchimento de endereço, novidades, regras de pontuação do formulário |
+| 28/03 e 15/04/2026 | Versões `1.0.0` e `1.1.x`, com deploy por tag: dashboard personalizada, redação (IA, ver e revisar), frequência, formulário global e de parceiro |
+| 06/06/2026 (`1.2.0`) | Home nova, chat de suporte, desempenho da turma, fila de respostas do simulado, processo seletivo de teste |
+| jul/2026 | Categoria no lugar de tipo de simulado, unificação de simulados e provas |
+| 05–06/09/2026 | Listagem única de estudantes, contatos no relatório de frequência, exportação de estudantes, cancelados na turma |
+| **11–12/10/2026** | **A grande release do ano:** provas do cursinho, cartão-resposta com leitura automática, relatórios, indicadores, PWA e push, mobile, login com Google e outras (detalhe abaixo) |
+| 12–14/10/2026 | Evento por simulado, ex-membros do cursinho, perfil recomendado, processos abertos na dashboard do aluno |
+
+## Features por tema
+
+Formato: **feature**: o que muda para quem usa · *onde entrou (PRs)* · versão.
+
+### Processo seletivo e formulário
+
+- **Formulário modular do processo seletivo**: o cursinho monta o formulário de inscrição em seções e questões, com condições entre questões (uma questão aparece conforme a resposta de outra), reordenação e duplicação de seção. · *form #1–#11 · api #362, #363, #373, #374 · client #452, #453, #456, #466–#469, #483, #488* · nov/2025.
+- **Regras de pontuação e classificação**: posição, desempate e pontuação combinando várias questões numa expressão. · *form #14 · client #532* · nov/2025 e mar/2026.
+- **Formulário global e de parceiro**: o admin mantém um formulário global, o cursinho tem o próprio, com a permissão `gerenciarFormulario`. · *form #18, #19, #21 · api #425, #437, #442, #457 · client #546, #570* · `1.0.0`/`1.1.x`.
+- **Acompanhamento de inscrição**: o estudante acompanha a inscrição, o cursinho vê cada candidato e conduz a declaração de interesse. · *api #368–#370, #391, #394, #395, #398–#400 · client #462, #490* · nov/2025 a fev/2026.
+- **Prorrogação de processo seletivo** · *client #463, #483* · nov–dez/2025.
+- **Processo seletivo de teste**: processo que não aparece para o público. · *api #479 · client #596, #611* · `1.2.0`.
+- **Processos seletivos na Dash V2**: listagem com filtros e contagem real de inscritos. · *api #589 · client #582, #753–#757* · `1.2.0`, `1.8.0`.
+
+### Estudantes, matrícula, turmas e frequência
+
+- **Declaração e confirmação de matrícula**: confirmação com turma, declaração em PDF, declaração de interesse passo a passo, download pelo colaborador. · *api #375, #412, #414, #430, #440, #459, #493 · client #468, #498, #502–#504, #508–#513, #549* · nov/2025 a `1.2.2`.
+- **Turmas com período letivo** · *api #364 · client #457, #458* · nov/2025.
+- **Frequência**: justificativa por período, Excel, % de presença, contatos (WhatsApp e telefone de urgência) no relatório, ordenação. · *api #445–#449, #454, #526 · client #554–#560, #567, #659, #661, #919* · `1.1.0` a `1.12.0`.
+- **Listagem única de estudantes**: uma tela com filtros de ano letivo, processo e status. · *api #519, #521, #522 · client #476, #655–#657* · `1.5.0`.
+- **Cancelamento, exportação e cancelados na turma**: justificativas padrão, planilha filtrada com escolha de colunas, mostrar ou esconder cancelados. · *api #528, #530, #534, #536, #540, #682 · client #663, #668, #670, #672, #674* · `1.7.0`, `1.8.1`.
+- **Segurança da listagem e da turma**: validação de filtros e ordenação, escopo por cursinho, detalhe do estudante protegido. · *api #517, #538* · `1.4.2`, `1.7.0`.
+- **Matrícula ativa única**: uma matrícula ativa por usuário, em qualquer cursinho. · *api #677 · client #898* · `1.8.0`.
+- **Isolamento entre cursinhos**: as rotas de estudante e turma só mostram dados do próprio cursinho. · *api #590–#594, #631–#634 · client #815* · `1.8.0`.
+
+### Banco de questões e provas
+
+- **Novo banco de questões**: nova tela de gestão, editor rico com imagens, gabarito, classificação, troca de arquivo de prova e gabarito. · *ms #104, #108–#112, #121, #134, #136 · api #365, #366, #376–#378, #406, #408, #438 · client #472, #533, #547, #608, #610, #624, #786* · nov/2025 a `1.8.0`.
+- **Categoria de simulado e unificação de simulados e provas**: "Tipo" vira "Categoria", com cadastro e contagem de uso; simulado e prova numa tela só. · *ms #149, #150, #155, #156, #173 · api #494, #496, #502, #515 · client #625, #630, #642, #654* · `1.3.0`, `1.4.0`, `1.8.0`.
+- **Provas do cursinho**: o cursinho cria prova própria; o simulado tem janela de disponibilidade; uma questão pode estar em várias provas, com prova-base. · *ms #144, #160, #164–#166, #168, #172 · api #504, #506, #508–#510, #514 · client #644, #646–#649, #652, #653* · `1.8.0`.
+- **Categoria por cursinho**: cada cursinho tem as próprias categorias. · *ms #188, #189 · api #547 · client #684, #685* · `1.8.0`.
+- **Linhagem de questão**: histórico de versões, cópia × versão, excluir questão órfã. · *ms #217–#219, #221, #225, #233 · api #569–#571, #585 · client #724–#726, #728, #729, #743, #744, #748* · `1.8.0`.
+- **Área ENEM da questão**: cadastrar questão sem prova. · *ms #222–#224 · client #730–#732* · `1.8.0`.
+- **Proteção das provas do cursinho**: o dono compõe a prova, recebe novas versões das questões e escolhe se aplica. · *ms #234–#243 · api #605–#612 · client #778–#784, #787* · `1.8.0`.
+- **Validação de questões pelo cursinho**: aprovar, recusar ou sinalizar revisão. · *ms #244, #246 · api #613–#615 · client #788, #789* · `1.8.0`.
+- **Duplicar prova do cursinho** · *ms #250 · api #628 · client #799* · `1.8.0`.
+- **Caderno em LaTeX**: baixar o caderno da prova para editar no Overleaf. · *ms #176–#184, #187, #190 · api #541–#543, #546, #548 · client #675, #676, #678* · `1.8.0`.
+
+### Cartão-resposta, resultados e relatórios
+
+- **Cartão-resposta com leitura automática**: o aluno baixa o cartão, envia a foto, o ms-omr lê e o resultado aparece no histórico. · *ms-omr #1, #4, #5 · ms #169, #226, #227, #247 · api #511, #584 · client #650, #688* · `1.8.0`.
+- **Relatório de simulado**: por cursinho e turma, por questão, detalhe do estudante, CSV, reprocessar envio. · *ms #191–#203 · ms-omr #7 · api #550–#552, #554–#559 · client #689–#723, #727, #745, #746, #759–#761* · `1.8.0`.
+- **Análise de resultados**: nota por matéria e frente, dificuldade e discriminação da questão, evolução do estudante. · *ms #204–#216, #220 · api #560–#568* · `1.8.0`.
+- **Simulado presencial do cursinho**: evento com inscrição e participantes pelo cartão. · *ms #249 · api #623–#627 · client #797, #798, #800* · `1.8.0`.
+- **Push do resultado do cartão**: o aluno é avisado quando o cartão é corrigido. · *ms #251 · api #629, #630* · `1.8.0`.
+- **Relatório da prova**, mantendo quem já saiu do cursinho. · *ms #257, #274 · api #675, #676, #678 · client #896, #897, #899, #908* · `1.8.0`.
+- **Qualidade da leitura do cartão**: foto endireitada pelo QR, exemplo de marcação no cartão, orientações antes de enviar. Ver [Qualidade da leitura do cartão-resposta](../relatorio-leitura-cartao/). · *ms #258, #259 · api #679 · client #900* · `1.8.0`.
+- **ENEM do cursinho**: um caderno e um cartão para Inglês e Espanhol. · *ms #260–#268, #270–#272 · ms-omr #8 · api #680, #681 · client #901–#904, #909* · `1.8.0`.
+- **Evento por simulado**: o aluno escolhe Inglês ou Espanhol; o painel mostra todos os simulados do evento. · *api #683–#686 · client #910, #911* · `1.9.0`/`1.10.0`.
+
+### Cursinho parceiro e equipe
+
+- **Gestão do cursinho parceiro**: cadastro, representante, termo de uso, logo. · *api #340, #341, #354–#356, #360, #361, #397, #402, #429 · client #440, #446, #447, #450, #451* · nov/2025 a mar/2026.
+- **Página do cursinho**: edição e página pública do cursinho. · *ms #248 · api #617–#622 · client #793–#795* · `1.8.0`.
+- **Indicadores do cursinho**: retrato diário por turma e 8 indicadores na tela e no dashboard. · *ms #252 · api #645–#653 · client #857–#867* · `1.8.0`.
+- **Convite de colaborador**: convite por e-mail, já com a função. · *api #572–#578, #580 · client #733–#738* · `1.8.0`.
+- **Tela de usuários**: busca, resumo e filtro por cursinho. · *api #579, #581–#583 · client #433, #545, #739–#742* · `1.8.0`.
+- **Ex-membros e perfil recomendado** · *api #688–#693 · client #916–#918* · `1.11.0`/`1.12.0`.
+- **Localiza cursinho**: mapa e busca de cursinhos, reportar e cadastrar. · *api #602–#604 · client #436, #613, #769–#777, #906, #914* · `1.8.0`.
+- **Colaborador × matéria e frente** · *api #411, #416, #433 · client #506, #516, #520, #542* · fev–mar/2026.
+
+### Comunicação com o aluno
+
+- **E-mail em massa** · *api #372, #396, #404 · client #464, #612* · nov/2025, `1.2.0`.
+- **Chat de suporte** e, depois, **chat no sino com várias conversas**. · *api #468, #472, #473, #480, #635, #641–#644 · client #583, #588, #597, #609, #616, #843, #853–#856* · `1.2.0`, `1.8.0`.
+- **App instalável (PWA) e notificações push**, com o convite para instalar. · *api #595–#601, #636, #637 · client #763–#768, #802–#806, #842, #844–#847, #851, #852* · `1.8.0`.
+- **Central de notificações**: sino com contador. · *api #638–#640 · client #848–#850* · `1.8.0`.
+- **Novidades**: arquivo ou texto rico, destaque, descrição e expiração. · *api #423, #424, #464 · client #529–#531, #818* · mar/2026, `1.2.0`, `1.8.0`.
+
+### Conteúdos e redação
+
+- **Conteúdos**: matérias, frentes, demandas, propostas de ajuste, histórico de arquivo, reordenação. · *ms #120, #122, #124, #125, #127–#129, #132 · api #407, #409, #426, #427 · client #501, #526, #535, #578, #617* · fev–mar/2026, `1.2.0`.
+- **Redação**: correção por IA que pode ser ligada e desligada, telas separadas de ver e revisar, temas com editor rico, manuscrito, evolução, imagens no texto motivador. · *api #442–#444, #453, #616 · client #551–#553, #566, #792* · `1.1.0`, `1.8.0`.
+
+### Dashboards, monitoramento e site
+
+- **Monitoramento da plataforma**: usuários por função, cursinhos, estudantes atendidos, impacto. · *ms #105, #107 · api #348–#353, #357, #359, #379, #434, #456, #474, #475, #549 · client #442, #443, #543, #569, #590, #687* · nov/2025 a `1.8.0`.
+- **Dashboard personalizada → Dashboard V2**: primeiro widgets por papel, depois indicadores e gráficos. · *api #451, #452, #687 · client #562–#566, #758, #866, #912, #913* · `1.1.0`, `1.8.0`, `1.11.0`.
+- **Desempenho da turma**: simulados e redação por turma, evolução mensal. · *ms #142, #143 · api #477, #478, #481–#483 · client #593–#595, #598–#601* · `1.2.0`.
+- **Home nova administrável e página Quem Somos** · *api #462, #464, #490 · client #537, #574, #575, #580, #589, #591, #606, #607, #620* · mar/2026, `1.2.0`.
+
+### Plataforma
+
+- **Sessão mais segura**: login de 15 minutos renovado por cookie. · *api #342, #343, #387, #388, #390 · client #478, #480, #550* · nov/2025, `1.1.0`.
+- **Login com Google** · *api #586–#588 · client #749–#752* · `1.8.0`.
+- **Área logada no celular**: cerca de 35 telas ajustadas e menu próprio para celular. · *client #807–#814, #816–#840* · `1.8.0`.
+- **Menu lateral novo e painéis do estudante e do colaborador** · *client #444, #445, #540, #603–#605, #619, #621, #796, #915* · nov/2025 a `1.12.0`.
+- **Correções achadas ao escrever esta documentação**: cerca de 56 ajustes em colaboradores, turmas, processo seletivo, provas, cartão e eventos. · *api #654–#674 · client #868–#894 · ms #253–#256 · form #28–#35* · `1.8.0`.
+- **Deploy por versão (tag)** e CI igual em todos os serviços · mar a out/2026.
+
+## Em números
+
+| Serviço | Versões no período | PRs na release de outubro |
+|---|---|---|
+| client | 15 deploys em main + 18 tags (`1.0.0` a `1.12.0`) | 241 (`1.8.0`) |
+| api | 12 deploys em main + 19 tags (`1.0.0` a `1.11.0`) | 169 (`1.8.0`) |
+| ms-simulado | 3 deploys em main + 5 tags (`1.0.0` a `1.4.0`) | 114 (`1.4.0`) |
+| vcnafacul-form | 3 deploys em main + 4 tags (`1.0.0` a `1.3.0`) | 8 (`1.3.0`) |
+| ms-omr | 1 tag (`1.0.0`, serviço novo) | 7 |
